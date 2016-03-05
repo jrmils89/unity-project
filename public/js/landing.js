@@ -1,4 +1,4 @@
-var app = angular.module('landing-Directive', []);
+var app = angular.module('landing-Directive', ['categoryContoller']);
 
 app.directive('landingDirective', function(){
 
@@ -6,10 +6,8 @@ app.directive('landingDirective', function(){
 
 		restrict: 'E',
 		templateUrl: 'views/templates/landing-partial.html',
-	// 	controller: function(){
-	// 		this.name = 'landingCtrl'
-	// 	},
-	// 	contr
+		controller: 'categoryContoller',
+		controllerAs: 'categoryCtrl'
 	}
 
 });
