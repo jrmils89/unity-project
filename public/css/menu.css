@@ -1,3 +1,7 @@
-section{
-	background-color:red;
+section#menuToggle{
+	text-align:center;
+}
+
+section#menuToggle h3{
+	text-transform: uppercase;
 }
