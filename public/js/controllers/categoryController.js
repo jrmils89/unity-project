@@ -1,10 +1,18 @@
 var app = angular.module('categoryContoller', []);
 
 
-app.controller('categoryContoller', [function() {
+app.controller('categoryContoller', ['$http', function($http) {
   var self = this;
-  //TO BE REMOVED
-  this.name = "foo";
-  //TO BE REMOVED
+
+  this.categoryNames = null;
+
+  $http.get('/categories').then(
+    function(response) {
+      self.categoryNames = response.data;
+    },
+    function(error) {
+      console.log(error);
+    }
+  );
 
 }])
