@@ -1,4 +1,6 @@
 (function() {
-  var app = angular.module('FlowLy', []);
+  
+  var app = angular.module('FlowLy', ['landing-Directive']);
 
-})()
+
+})();
