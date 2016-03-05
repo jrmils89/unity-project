@@ -8,6 +8,13 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/:name', function(req, res) {
+  var name = req.params.name
+  Category.find({title: name}, {concept: 1, title: 1}, function(err, data) {
+    res.json(data);
+  })
+})
+
 
 router.post('/', function(req, res) {
   Category.create(req.body, function(err, data) {
