@@ -9,10 +9,13 @@
 	<br>
 
 	<div id="dropdownMenu" ng-show="categoryCtrl.show">
-		<ul ng-repeat="categoryName in categoryCtrl.categoryNames">
+		<ul ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search">
 
 			<li><a href="#">{{categoryName.title}}</a></li>
 		</ul>
+
+		<input class="category-search" type="text" ng-model="search" placeholder="Search" />
 	</div>
+
 
 </section>
