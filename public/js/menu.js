@@ -4,7 +4,7 @@ var app = angular.module("menu-directive", ['categoryContoller']);
   	return{
   		restrict: "E",
   		templateUrl: "views/templates/menu-partial.html",
-      controller: 'categoryContoller',
-      controllerAs: 'categoryCtrl'
+	    controller: 'categoryContoller',
+	    controllerAs: 'categoryCtrl'
   	}
   }])

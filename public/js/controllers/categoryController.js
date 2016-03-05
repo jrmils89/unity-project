@@ -9,6 +9,7 @@ app.controller('categoryContoller', ['$http', function($http) {
   $http.get('/categories').then(
     function(response) {
       self.categoryNames = response.data;
+      // console.log(response.data)
     },
     function(error) {
       console.log(error);

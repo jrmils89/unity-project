@@ -9,11 +9,10 @@
 	<br>
 
 	<div id="dropdownMenu">
-		<ul>
-			<li>Link 1</li>
-			<li>Link 2</li>
-			<li>Link 3</li>
+		<ul ng-repeat="categoryName in categoryCtrl.categoryNames">
+
+			<li><a href="#">{{categoryName.title}}</a></li>
 		</ul>
 	</div>
-	
+
 </section>
