@@ -3,7 +3,7 @@ var router  = express.Router();
 var Category = require('../models/category.js');
 
 router.get('/', function(req, res) {
-  Category.find({}, function(err, data) {
+  Category.find({}).sort('title').exec(function(err, data) {
     res.json(data);
   });
 });
