@@ -4,4 +4,20 @@ section#menuToggle{
 
 section#menuToggle h3{
 	text-transform: uppercase;
+	display:inline;
+}
+
+section#menuToggle img{
+	width:30px;
+	float:left;
+}
+
+section#menuToggle ul{
+	list-style: none;
+	text-transform: uppercase;
+}
+
+#toggleCategoryContainer, #dropdownMenu{
+	width:100%;
+	/*display:block;*/
 }
