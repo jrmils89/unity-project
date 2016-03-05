@@ -9,7 +9,6 @@ app.controller('categoryContoller', ['$http', function($http) {
   this.show = false;
 
   this.revealCategories = function(){
-    console.log("revealing categories")
     self.show = !self.show
   };
 
