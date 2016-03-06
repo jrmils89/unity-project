@@ -8,12 +8,33 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/:id', function(req, res) {
+  Category.findById(req.params.id, function(err, data) {
+    console.log('data from put route: ', req.body);
+    res.json(data);
+  });
+});
+
+
+
 
 router.post('/', function(req, res) {
   Category.create(req.body, function(err, data) {
     res.send(data);
   });
 });
+ 
+
+// making put route for category concepts
+router.put('/:id', function(req, res){
+  console.log('data from put route: ', req.body);
+  Category.findByIdAndUpdate(req.params.id, req.body, function(err, category){
+      res.send(category);
+  });
+});
+
+
+
 
 router.get('/seed', function(req, res) {
   var data = [

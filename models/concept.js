@@ -6,4 +6,10 @@ var conceptSchema = mongoose.Schema({
   stars: Number
 });
 
+
+
+
+
+
+
 module.exports = mongoose.model('Concept', conceptSchema);

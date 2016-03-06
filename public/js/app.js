@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive']);
+  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'edit-Directive']);
 
   app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({ enabled: true });

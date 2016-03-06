@@ -1,0 +1,6 @@
+	<!-- ng-if="" -->
+	<form ng-submit="categoryCtrl.saveData(categoryCtrl.model._id, categoryCtrl.model)">
+		<input type="text" name="concepts" value="{{category.title}}" />
+		<input type="hidden" name="_method" value="PUT"/>
+		<button>Update!</button>
+	</form>
