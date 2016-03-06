@@ -3,7 +3,7 @@
 
 
 	<div id="toggleCategoryContainer" ng-click="categoryCtrl.revealCategories()">
-		<a href="#dropdownMenu"><img src="img/menuToggle.svg"></a>
+		<img src="img/menuToggle.svg">
 		<h3>Categories</h3>
 	</div>
 	<br>
@@ -11,7 +11,7 @@
 	<div id="dropdownMenu" ng-show="categoryCtrl.show">
 		<ul ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search">
 
-			<li><a href="#">{{categoryName.title}}</a></li>
+			<li><a href="/categories/{{categoryName.title}}">{{categoryName.title}}</a></li>
 		</ul>
 
 		<input class="category-search" type="text" ng-model="search" placeholder="Search" />
