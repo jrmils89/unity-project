@@ -1,8 +1,122 @@
-
-#landing-container{
-
+html, body{
 	height: 100%;
 	width: 100%;
-	border: ;
+}
+
+/*div containing the entire landing view*/
+#landing-container{
+	/*background-image: url('http://uxrepo.com/static/icon-sets/font-awesome/svg/code.jpg');
+	background-size: cover;*/
+	height: 90%;
+	width: 80%;
+	border: 1px solid black;
+	padding-top: 2em;
+	margin: 10px auto;
+}
+
+
+/*========================================================================*/
+
+
+/*search box containing input field / everything until #landing-list-container
+ / we can probably just delete this unless we want it for something*/
+#search-box{
+
+	height:5%;
+	width: 25%;
+	border: 1px solid black;
+	margin: 0 auto;
 
 }
+
+/*input field class*/
+.category-search{
+	height: 90%;
+	width: 99%;
+}
+
+/*input field styling / removing blue highslight when field is clicked*/
+input.category-search:focus {
+    outline-width: 0;
+}
+/*input field styling placeholder text*/
+input.placeholder {
+    text-align: center;
+}
+
+
+
+/*========================================================================*/
+
+
+
+#landing-list-container{
+	height: 100%;
+	width: 25%;
+	margin: 0 auto;
+	/*border: 1px solid blue;*/
+	animation-name: turnups;
+	animation-duration: 3s;
+}
+
+@keyframes turnups {
+    from   {height:0%;}
+    to     {height:100%;}
+}
+ 
+
+/*========================================================================*/
+
+/*www.engineersgarage.com/sites/default/files/imagecache/Original/wysiwyg_imageupload/4214/if-else-code-flow.gif
+*/
+.list-item{
+	height: 15%;
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px solid black;
+	text-align: center;
+	padding-top: 1em;
+}
+
+.list-item:hover{
+
+	background-color: #d5fcf5;
+/*	background-image: url('www.engineersgarage.com/sites/default/files/imagecache/Original/wysiwyg_imageupload/4214/if-else-code-flow.gif');
+	background-size: cover;*/
+}
+
+
+
+/*========================================================================*/
+
+
+
+.list-text{
+	margin-top: 20px;
+	animation-name: turnuptime;
+    animation-duration: 5s;
+}
+
+@keyframes turnuptime {
+    0%   {opacity:0;}
+    25%  {opacity:.005;}
+    60%  {opacity:1;}
+    75%  {opacity:2;}
+    100% {opacity:3;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
