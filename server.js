@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 var db = mongoose.connection;
 var bodyParser = require('body-parser');
+var passport = require('passport');
 
 mongoose.connect('mongodb://localhost/flow-ly');
 
@@ -12,9 +13,16 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var categoriesController = require('./controllers/categoriesController.js');
+require('./config/passport')(passport);
 
+var categoriesController = require('./controllers/categoriesController.js');
+var usersController = require('./controllers/usersController.js');
 app.use('/categories', categoriesController);
+app.use('/users', usersController);
+
+// Using passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 db.once('open', function() {
