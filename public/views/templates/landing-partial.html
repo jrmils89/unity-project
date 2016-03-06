@@ -1,19 +1,25 @@
 
-<div id="search-form-container">
-
-
+<!-- <div id="landing-container">
+ -->
 	<div id="search-box">
-		<span class="search-text">Search by catergory</span>
+		<input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
+	</div>
+
+
+
+	<div id="landing-list-container">
+		<!-- <input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
+ 		-->
+		<div class="list-item" ng-repeat="category in categoryCtrl.categoryNames | filter: search">
+				<span class="list-text">{{category.title}}</span>
+		</div>
 
 	</div>
 
 
 
-
-
-
-</div>
-
+<!-- </div> -->
+	<!-- close container div -->
 
 
 
