@@ -12,10 +12,10 @@ app.controller('categoryContoller', ['$http', function($http) {
     self.show = !self.show
   };
 
+  // Makes a GET request to the server /categories route
   $http.get('/categories').then(
     function(response) {
       self.categoryNames = response.data;
-      // console.log(response.data)
     },
     function(error) {
       console.log(error);
