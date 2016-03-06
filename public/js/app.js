@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive']);
+  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'login-directive']);
 
   app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({ enabled: true });
@@ -8,6 +8,9 @@
             templateUrl: 'views/pages/home.html',
         }).
         when('/categories/:name', {
+            templateUrl: 'views/pages/concepts-page.html',
+        }).
+        when('/categories', {
             templateUrl: 'views/pages/concepts-page.html',
         }).
         otherwise({
