@@ -24,8 +24,8 @@ html, body{
 
 	height:5%;
 	width: 25%;
-	border: 1px solid black;
-	margin: 0 auto;
+/*	border: 1px solid black;
+*/	margin: 0 auto;
 
 }
 
@@ -52,31 +52,33 @@ input.placeholder {
 
 #landing-list-container{
 	height: 100%;
-	width: 25%;
+	width: 100%;
 	margin: 0 auto;
-	/*border: 1px solid blue;*/
+/*	border: solid 1px black;
+*/	/*border: 1px solid blue;*/
 	animation-name: turnups;
-	animation-duration: 3s;
+	animation-duration: 1s;
 }
 
 @keyframes turnups {
-    from   {height:0%;}
-    to     {height:100%;}
+    0%   {height:0%; opacity: 0}
+    50%   {opacity: .75}
+    100%     {height:100%; opacity: 1}
 }
  
 
 /*========================================================================*/
-
+	/*gif i thought about using */
 /*www.engineersgarage.com/sites/default/files/imagecache/Original/wysiwyg_imageupload/4214/if-else-code-flow.gif
 */
 .list-item{
-	height: 15%;
+	height: 8%;
 	width: 100%;
-	background-color: white;
-	border-bottom: 1px solid black;
+/*	background-color: white;
+*//*	border-bottom: 1px solid black;*/
 	text-align: center;
-	padding-top: 1em;
-}
+/*	padding-top: 1em;
+*/}
 
 .list-item:hover{
 
@@ -93,18 +95,18 @@ input.placeholder {
 
 .list-text{
 	margin-top: 20px;
-	animation-name: turnuptime;
+/*	animation-name: turnuptime;
     animation-duration: 5s;
-}
+*/}
 
-@keyframes turnuptime {
+/*@keyframes turnuptime {
     0%   {opacity:0;}
     25%  {opacity:.005;}
     60%  {opacity:1;}
     75%  {opacity:2;}
     100% {opacity:3;}
 }
-
+*/
 
 
 
