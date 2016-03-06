@@ -1,12 +1,10 @@
-var app = angular.module("concept-directive", ['categoryContoller']);
+var app = angular.module("concept-directive", ['conceptController']);
 
   app.directive("conceptDirective", [function(){
   	return{
   		restrict: "E",
   		templateUrl: "views/templates/concept-partial.html",
-
-  		// masha's doing this
-  		controller: 'categoryContoller',
-		controllerAs: 'categoryCtrl'
+  		controller: "conceptController",
+  		controllerAs: "conceptCtrl"
   	}
   }]);
