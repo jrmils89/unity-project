@@ -13,7 +13,7 @@ router.post('/', function(req, res) {
   Category.create(req.body, function(err, data) {
     res.send(data);
   });
-})
+});
 
 router.get('/seed', function(req, res) {
   var data = [

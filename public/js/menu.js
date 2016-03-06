@@ -7,4 +7,4 @@ var app = angular.module("menu-directive", ['categoryContoller']);
 	    controller: 'categoryContoller',
 	    controllerAs: 'categoryCtrl'
   	}
-  }])
+  }]);

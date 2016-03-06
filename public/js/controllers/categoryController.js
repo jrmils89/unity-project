@@ -22,4 +22,4 @@ app.controller('categoryContoller', ['$http', function($http) {
     }
   );
 
-}])
+}]);

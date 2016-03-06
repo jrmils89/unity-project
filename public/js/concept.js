@@ -5,4 +5,4 @@ var app = angular.module("concept-directive", []);
   		restrict: "E",
   		templateUrl: "views/templates/concept-partial.html"
   	}
-  }])
+  }]);
