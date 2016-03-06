@@ -10,9 +10,6 @@
         when('/categories/:name', {
             templateUrl: 'views/pages/concepts-page.html',
         }).
-        when('/categories', {
-            templateUrl: 'views/pages/concepts-page.html',
-        }).
         otherwise({
             redirectTo: '/'
         });

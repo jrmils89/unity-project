@@ -24,7 +24,7 @@ app.controller('loginController', ['$http','$cookies', function($http,$cookies) 
           username: cookies.userUsername,
           email: cookies.userEmail,
         };
-        if (cookies.userUsername != null) {self.loggedIn = true};
+        if (cookies.userUsername != null) {self.user.loggedIn = true};
       },
       function(error) {
         console.log(error);

@@ -31,7 +31,7 @@ router.get('/logout', function(req, res) {
     res.clearCookie('userid');
     res.clearCookie('userUsername');
     res.clearCookie('userEmail');
-    res.json({succes: true})
+    res.json({success: true})
   });
 //
 // router.post('/', function(req, res) {
