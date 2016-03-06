@@ -1,4 +1,12 @@
 <section class="concept">
-	Concept Partial<br>
-	{{conceptCtrl.test}}
+
+	<div ng-repeat="concept in conceptCtrl.concept">
+
+			<div ng-repeat="title in concept.concept">
+				<h2>Title: {{title.title}}</h2>
+				<p>Stars: {{title.stars}}</p>
+			</div>
+
+	</div><br>
+
 </section>
