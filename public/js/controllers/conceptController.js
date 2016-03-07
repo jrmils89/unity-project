@@ -4,7 +4,6 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 	var self = this;
 
 	this.name = $routeParams.name;
-	// console.log($routeParams.name)
 
 	this.user = {};
   this.user.loggedIn = false;
@@ -35,6 +34,9 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 
 	this.concept = [];
 
+
+
+
 	$http.get("/categories/" + this.name).then(
 		function(response){
 			// console.log(response.data)
@@ -44,4 +46,39 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 			console.log("error")
 		}
 	)
+
+
+
+
+	this.edit = false;
+
+    this.revealConcepts = function(){
+    	self.edit = !self.edit
+  	};
+
+  
+
+
+
+  this.saveData = function(data) {
+    $http.put('/categories/'+ self.name, data).then(
+      function(response) {
+
+      },
+      function(error) {
+        console.log(error);
+      }
+    );
+  };
+
+
+
+
 }]);
+	// close controller
+
+
+
+
+
+

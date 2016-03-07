@@ -15,10 +15,12 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 require('./config/passport')(passport);
 
 
 app.use(session({ secret: 'flowlyapplication' }));
+
 
 // Using passport
 app.use(passport.initialize());
