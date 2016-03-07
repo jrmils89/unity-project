@@ -1,7 +1,6 @@
 var express = require('express');
 var router  = express.Router();
 var Category = require('../models/category.js');
-var Concept = require('../models/concept.js');
 
 router.get('/', function(req, res) {
   Category.find({}).sort('title').exec(function(err, data) {
@@ -23,63 +22,27 @@ router.post('/', function(req, res) {
 //get info by name
 router.get("/:name", function(req, res){
   Category.find({title:req.params.name}, function(error, data){
-    console.log('===============================');
-    console.log('Name of catagory: ', data);
-    console.log('===============================');
     res.send(data);
   });
 });
 
 
 
-// // conceptid must be declared in concept controller with $routeparams
-// router.put("/:name/:conceptid", function(req, res){
-//   // console.log(conceptid);
-//   // Category.find({title:req.params.id}, function(error, data){
 
-//     Concept.findById({conceptid:req.params.conceptid}, function(error, data){
-
-//     console.log('===============================');
-//     console.log('ID of single concept: ', + data);
-//     console.log('===============================');
-//     res.send(data);
-
-//     // });
-//   });
-// });
-
-
-
-
-
-// making put route for category concepts
+// edit concepts within category
 router.put('/:name', function(req, res){
-  console.log('data from put route: ', req.body);
-  console.log('================================');
-  // Category.findOne(req.params.name, function(err, data){
-
     Category.findOneAndUpdate(
-
-    { "title": req.params.name, "concept._id": req.body._id },
-    { 
+      { "title": req.params.name, "concept._id": req.body._id },
+      { 
         "$set": {
             "concept.$": req.body
         }
     },
     function(err, data) {
-
-      console.log('CONCEPT TITLE:'  + req.params.name);
-
-      console.log('================================');
-      console.log(data)
-      console.log('================================');
-
       res.send(data);
     }
       )
-      // {title: req.params.id}, req.body, function(err, newconcept){
-       
-    });
+});
   
 
 

@@ -1,6 +1,5 @@
 
-<!-- <div id="landing-container">
- -->
+
 	<div id="search-box">
 		<input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
 	</div>
@@ -8,18 +7,12 @@
 
 
 	<div id="landing-list-container">
-		<!-- <input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
- 		-->
+	
 		<div class="list-item" ng-repeat="category in categoryCtrl.categoryNames | filter: search">
 				<a href="/categories/{{category.title}}"><span class="list-text">{{category.title}}</span></a>
 		</div>
 
 	</div>
-
-
-
-<!-- </div> -->
-	<!-- close container div -->
 
 
 
