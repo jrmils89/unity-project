@@ -1,8 +1,8 @@
 <form ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
-		<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address"><br/>
-		<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password"><br/>
-		<input type="submit" value="Submit">
+		<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address">
+		<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password">
+		<input type="submit" value="Log In">
 </form>
-<p ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</p>
+<span ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</span>
+<button ng-if="loginCtrl.user.username != null" ng-click="loginCtrl.logout()">LogOut</button>
 
-<button ng-click="loginCtrl.logout()">LogOut</button>

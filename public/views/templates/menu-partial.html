@@ -1,22 +1,20 @@
 
 <section id="menuToggle">
 
-
 	<div id="toggleCategoryContainer" ng-click="categoryCtrl.revealCategories()">
 		<img src="img/menuToggle.svg">
 		<h3>Categories</h3>
 	</div>
 	<br>
+	<login-directive></login-directive>
 
 	<div id="dropdownMenu" ng-show="categoryCtrl.show">
-		<ul ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search">
-
-			<li><a href="/categories/{{categoryName.title}}">{{categoryName.title}}</a></li>
+		<ul >
+			<li ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search"><a href="/categories/{{categoryName.title}}">{{categoryName.title}}</a></li>
 		</ul>
-
 		<input class="category-search" type="text" ng-model="search" placeholder="Search" />
 	</div>
 
-	<login-directive></login-directive>
+
 
 </section>

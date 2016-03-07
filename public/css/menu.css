@@ -1,5 +1,6 @@
 section#menuToggle{
 	text-align:center;
+	position: relative
 }
 
 section#menuToggle h3{
@@ -17,7 +18,19 @@ section#menuToggle ul{
 	text-transform: uppercase;
 }
 
-#toggleCategoryContainer, #dropdownMenu{
+#toggleCategoryContainer {
+	width: 100%;
+}
+
+#dropdownMenu{
 	width:100%;
-	/*display:block;*/
+	position: absolute;
+	z-index: 999;
+	background-color: white;
+}
+
+login-directive {
+	position: fixed;
+	top: 0;
+	right: 0;
 }
