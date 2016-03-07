@@ -15,39 +15,6 @@ router.post('/', function(req, res) {
     res.send(data);
   });
 });
- 
-
-
-
-//get info by name
-router.get("/:name", function(req, res){
-  Category.find({title:req.params.name}, function(error, data){
-    res.send(data);
-  });
-});
-
-
-
-
-// edit concepts within category
-router.put('/:name', function(req, res){
-    Category.findOneAndUpdate(
-      { "title": req.params.name, "concept._id": req.body._id },
-      { 
-        "$set": {
-            "concept.$": req.body
-        }
-    },
-    function(err, data) {
-      res.send(data);
-    }
-      )
-});
-  
-
-
-
-
 
 router.get('/seed', function(req, res) {
   var data = [
@@ -58,7 +25,7 @@ router.get('/seed', function(req, res) {
           title: 'Router',
           img: '',
           stars: 2,
-          approved: false
+          approved: true
         },
         {
           title: 'Static',
@@ -75,7 +42,7 @@ router.get('/seed', function(req, res) {
           title: 'If...else',
           img: '',
           stars: 3,
-          approved: false
+          approved: true
         },
         {
           title: 'Loop',
@@ -98,7 +65,7 @@ router.get('/seed', function(req, res) {
           title: 'Controller',
           img: '',
           stars: 5,
-          approved: false
+          approved: true
         },
         {
           title: 'Directive',
@@ -121,7 +88,7 @@ router.get('/seed', function(req, res) {
           title: 'Elements',
           img: '',
           stars: 3,
-          approved: false
+          approved: true
         },
         {
           title: 'Script',
@@ -133,7 +100,7 @@ router.get('/seed', function(req, res) {
           title: 'Form',
           img: '',
           stars: 6,
-          approved: false
+          approved: true
         }
       ]
     },
@@ -144,7 +111,7 @@ router.get('/seed', function(req, res) {
           title: 'Selectors',
           img: '',
           stars: 2,
-          approved: false
+          approved: true
         },
         {
           title: 'Anchors',
@@ -166,6 +133,40 @@ router.get('/seed', function(req, res) {
     res.redirect('/categories')
   });
 });
+
+
+
+//get info by name
+router.get("/:name", function(req, res){
+  Category.find({title:req.params.name}, function(error, data){
+    res.send(data);
+  });
+});
+
+
+
+
+// edit concepts within category
+router.put('/:name', function(req, res){
+    Category.findOneAndUpdate(
+      { "title": req.params.name, "concept._id": req.body._id },
+      {
+        "$set": {
+            "concept.$": req.body
+        }
+    },
+    function(err, data) {
+      res.send(data);
+    }
+      )
+});
+
+
+
+
+
+
+
 
 
 module.exports = router;
