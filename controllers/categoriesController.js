@@ -30,12 +30,14 @@ router.get('/seed', function(req, res) {
         {
           title: 'Router',
           img: '',
-          stars: 2
+          stars: 2,
+          approved: false
         },
         {
           title: 'Static',
           img: '',
-          stars: 1
+          stars: 1,
+          approved: false
         }
       ]
     },
@@ -45,17 +47,20 @@ router.get('/seed', function(req, res) {
         {
           title: 'If...else',
           img: '',
-          stars: 3
+          stars: 3,
+          approved: false
         },
         {
           title: 'Loop',
           img: '',
-          stars: 4
+          stars: 4,
+          approved: false
         },
         {
           title: 'Function',
           img: '',
-          stars: 8
+          stars: 8,
+          approved: false
         }
       ]
     },
@@ -65,17 +70,20 @@ router.get('/seed', function(req, res) {
         {
           title: 'Controller',
           img: '',
-          stars: 5
+          stars: 5,
+          approved: false
         },
         {
           title: 'Directive',
           img: '',
-          stars: 9
+          stars: 9,
+          approved: false
         },
         {
           title: 'Module',
           img: '',
-          stars: 8
+          stars: 8,
+          approved: false
         }
       ]
     },
@@ -85,17 +93,20 @@ router.get('/seed', function(req, res) {
         {
           title: 'Elements',
           img: '',
-          stars: 3
+          stars: 3,
+          approved: false
         },
         {
           title: 'Script',
           img: '',
-          stars: 2
+          stars: 2,
+          approved: false
         },
         {
           title: 'Form',
           img: '',
-          stars: 6
+          stars: 6,
+          approved: false
         }
       ]
     },
@@ -105,17 +116,20 @@ router.get('/seed', function(req, res) {
         {
           title: 'Selectors',
           img: '',
-          stars: 2
+          stars: 2,
+          approved: false
         },
         {
           title: 'Anchors',
           img: '',
-          stars: 3
+          stars: 3,
+          approved: false
         },
         {
           title: 'Classes',
           img: '',
-          stars: 2
+          stars: 2,
+          approved: false
         }
       ]
     }
