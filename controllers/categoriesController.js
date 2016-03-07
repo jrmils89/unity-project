@@ -16,6 +16,123 @@ router.post('/', function(req, res) {
   });
 });
 
+router.get('/seed', function(req, res) {
+  var data = [
+    {
+      title: 'ExpressJS',
+      concept: [
+        {
+          title: 'Router',
+          img: '',
+          stars: 2,
+          approved: true
+        },
+        {
+          title: 'Static',
+          img: '',
+          stars: 1,
+          approved: false
+        }
+      ]
+    },
+    {
+      title: 'Javascript',
+      concept: [
+        {
+          title: 'If...else',
+          img: '',
+          stars: 3,
+          approved: true
+        },
+        {
+          title: 'Loop',
+          img: '',
+          stars: 4,
+          approved: false
+        },
+        {
+          title: 'Function',
+          img: '',
+          stars: 8,
+          approved: false
+        }
+      ]
+    },
+    {
+      title: 'AngularJS',
+      concept: [
+        {
+          title: 'Controller',
+          img: '',
+          stars: 5,
+          approved: true
+        },
+        {
+          title: 'Directive',
+          img: '',
+          stars: 9,
+          approved: false
+        },
+        {
+          title: 'Module',
+          img: '',
+          stars: 8,
+          approved: false
+        }
+      ]
+    },
+    {
+      title: 'HTML',
+      concept: [
+        {
+          title: 'Elements',
+          img: '',
+          stars: 3,
+          approved: true
+        },
+        {
+          title: 'Script',
+          img: '',
+          stars: 2,
+          approved: false
+        },
+        {
+          title: 'Form',
+          img: '',
+          stars: 6,
+          approved: true
+        }
+      ]
+    },
+    {
+      title: 'CSS',
+      concept: [
+        {
+          title: 'Selectors',
+          img: '',
+          stars: 2,
+          approved: true
+        },
+        {
+          title: 'Anchors',
+          img: '',
+          stars: 3,
+          approved: false
+        },
+        {
+          title: 'Classes',
+          img: '',
+          stars: 2,
+          approved: false
+        }
+      ]
+    }
+  ];
+
+  Category.create(data, function(err, data) {
+    res.redirect('/categories')
+  });
+});
 
 
 
@@ -45,123 +162,11 @@ router.put('/:name', function(req, res){
 });
 
 
-router.get('/seed', function(req, res) {
-  var data = [
-    {
-      title: 'ExpressJS',
-      concept: [
-        {
-          title: 'Router',
-          img: '',
-          stars: 2,
-          approved: false
-        },
-        {
-          title: 'Static',
-          img: '',
-          stars: 1,
-          approved: false
-        }
-      ]
-    },
-    {
-      title: 'Javascript',
-      concept: [
-        {
-          title: 'If...else',
-          img: '',
-          stars: 3,
-          approved: false
-        },
-        {
-          title: 'Loop',
-          img: '',
-          stars: 4,
-          approved: false
-        },
-        {
-          title: 'Function',
-          img: '',
-          stars: 8,
-          approved: false
-        }
-      ]
-    },
-    {
-      title: 'AngularJS',
-      concept: [
-        {
-          title: 'Controller',
-          img: '',
-          stars: 5,
-          approved: false
-        },
-        {
-          title: 'Directive',
-          img: '',
-          stars: 9,
-          approved: false
-        },
-        {
-          title: 'Module',
-          img: '',
-          stars: 8,
-          approved: false
-        }
-      ]
-    },
-    {
-      title: 'HTML',
-      concept: [
-        {
-          title: 'Elements',
-          img: '',
-          stars: 3,
-          approved: false
-        },
-        {
-          title: 'Script',
-          img: '',
-          stars: 2,
-          approved: false
-        },
-        {
-          title: 'Form',
-          img: '',
-          stars: 6,
-          approved: false
-        }
-      ]
-    },
-    {
-      title: 'CSS',
-      concept: [
-        {
-          title: 'Selectors',
-          img: '',
-          stars: 2,
-          approved: false
-        },
-        {
-          title: 'Anchors',
-          img: '',
-          stars: 3,
-          approved: false
-        },
-        {
-          title: 'Classes',
-          img: '',
-          stars: 2,
-          approved: false
-        }
-      ]
-    }
-  ];
 
-  Category.create(data, function(err, data) {
-    res.redirect('/categories')
-  });
-});
+
+
+
+
 
 
 module.exports = router;
