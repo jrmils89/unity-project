@@ -1,4 +1,4 @@
-var app = angular.module("concept-directive", ['conceptController']);
+var app = angular.module("concept-directive", ['conceptController', 'add-concept']);
 
   app.directive("conceptDirective", [function(){
   	return{

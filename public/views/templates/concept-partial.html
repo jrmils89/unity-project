@@ -6,15 +6,17 @@
 	<h1>{{conceptCtrl.name}}</h1>
 
 	<div id="addConcept">
+		<h1 style="color:red">conceptCtrl.concept</h1>
+		{{conceptCtrl.concept}}
 
-	<h1 style="color:red">conceptCtrl.concept</h1>
-	{{conceptCtrl.concept}}
+<br><br>
+
+		<add-concept></add-concept>
 
 	</div>
 
 	<div ng-if="conceptCtrl.user.isAdmin === false || conceptCtrl.user.loggedIn === false">
 		<div ng-repeat="concept in conceptCtrl.concept">
-
 			<div ng-repeat="title in concept.concept | filter:title.approved=true">
 			<h2>Title: {{title.title}}</h2>
 			<p>Stars: {{title.stars}}</p>
