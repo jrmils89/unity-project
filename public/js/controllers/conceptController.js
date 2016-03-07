@@ -1,10 +1,33 @@
-var app = angular.module("conceptController", []);
+var app = angular.module("conceptController", ['ngCookies']);
 
-app.controller("conceptController", ["$http", "$routeParams", function($http, $routeParams){
+app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope', function($http, $routeParams, $cookies,$scope){
 	var self = this;
 
 	this.name = $routeParams.name;
 	// console.log($routeParams.name)
+
+	this.user = {};
+  this.user.loggedIn = false;
+	var cookies = $cookies.getAll();
+
+	if (cookies.userUsername && cookies.userEmail) {
+		self.user = {
+			username: cookies.userUsername,
+			email: cookies.userEmail,
+			isAdmin: cookies.userIsAdmin,
+			loggedIn: true
+		};
+	};
+
+	$scope.$on('user-logged-in', function(eventObj, data){
+        self.user = data;
+    });
+
+	$scope.$on('user-logged-out', function(eventObj, data){
+	        self.user = data;
+    });
+
+	this.concepName = 'Controller'
 
 	this.concept = [];
 

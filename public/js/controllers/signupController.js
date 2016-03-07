@@ -1,30 +1,28 @@
 var app = angular.module("SignupController", ['ngCookies']);
 
-app.controller("SignupController", ["$http",'$cookies', function($http, $cookies){
+app.controller("SignupController", ["$http", "$scope", '$cookies', function($http, $scope, $cookies){
 	var self = this;
 	this.user = {};
-	this.user.signedUp = false;
+	// this.user.signedUp = false;
+	this.user.loggedIn = false;
 
-	var cookies = $cookies.getAll();
+	// $scope.$on('user-logged-in', function(eventObj, data){
+ //        self.user = data;
+ //    });
 
-	if (cookies.userUsername && cookies.userEmail) {
-	    self.user = {
-	      username: cookies.userUsername,
-	      email: cookies.userEmail,
-	      signedUp: true
-	    };
-  	};
+	// $scope.$on('user-logged-out', function(eventObj, data){
+	//         self.user = data;
+ //    });    
 
-	this.signup = function(data){
-		$http.post("/users/signup", data).then(
+
+	this.signup = function(){
+
+		console.log("submitting");
+
+		$http.post("/users/signup").then(
 			function(response){
-				var cookies = $cookies.getAll();
-				self.user = {
-					username: cookies.userUsername,
-					email: cookies.userEmail
-				};
-				if (cookies.userUsername != null) {self.user.loggedIn = true};
-				console.log(response)
+				self.user.loggedIn = true
+				console.log(self.user)
 			},
 			function(error){
 				console.log(error)
