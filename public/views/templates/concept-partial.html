@@ -13,7 +13,8 @@
 			<h2 ng-click="conceptCtrl.revealConcepts()">Title: {{title.title}}</h2>
 			<p>Stars: {{title.stars}}</p>
 			<div id="edit" ng-show="conceptCtrl.edit">
-				<form id="testForm{{$index}}" ng-submit="conceptCtrl.saveData(title,$index)">
+				{{$index}}
+				<form id="testForm{{$index}}" ng-submit="conceptCtrl.saveData(title, $index)">
 					<img ng-src="{{title.img}}" alt="">
 					<input type="text" name="title" ng-model="title.title" value="{{title.title}}" />
 					<input type="text" name="stars" value="{{title.stars}}" />

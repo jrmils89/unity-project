@@ -50,17 +50,13 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 
 
 
-
 	this.edit = false;
 
     this.revealConcepts = function(){
     	self.edit = !self.edit
   	};
 
-
-
   this.saveData = function(data,index) {
-		console.log(document.getElementById("formFile"+index))
 		if (document.getElementById("formFile"+index).value != "") {
 			ospry.up(
 						{
@@ -70,7 +66,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 						data.img = metadata.httpsURL;
 							$http.put('/categories/'+ self.name, data).then(
 								function(response) {
-									console.log(response);
+									return true;
 								},
 								function(error) {
 									console.log(error);
@@ -82,14 +78,13 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 		} else {
 			$http.put('/categories/'+ self.name, data).then(
 				function(response) {
-					console.log(response);
+					return true;
 				},
 				function(error) {
 					console.log(error);
 				}
 			);
 		}
-
   };
 
 
