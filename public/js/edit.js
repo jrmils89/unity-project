@@ -1,4 +1,4 @@
-var app = angular.module('edit-Directive', ['categoryContoller']);
+var app = angular.module('edit-Directive', ['conceptController']);
 
 app.directive('editDirective', [function(){
 
@@ -6,8 +6,8 @@ app.directive('editDirective', [function(){
 
 		restrict: 'E',
 		templateUrl: 'views/templates/edit-concept-partial.html',
-		controller: 'categoryContoller',
-		controllerAs: 'categoryCtrl'
+		controller: 'conceptController',
+		controllerAs: 'conceptCtrl'
 	}
 
 }]);

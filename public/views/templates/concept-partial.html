@@ -1,10 +1,20 @@
 <section class="concept">
 	<div ng-repeat="concept in conceptCtrl.concept">
 
-			<div ng-repeat="title in concept.concept">
-				<h2>Title: {{title.title}}</h2>
+		<div ng-repeat="title in concept.concept">
+				<h2 ng-click="conceptCtrl.revealConcepts()"> Title: {{title.title}}</h2>
 				<p>Stars: {{title.stars}}</p>
-			</div>
-
-	</div><br>
+		
+		
+		<div id="edit" ng-show="conceptCtrl.edit">		
+			<form ng-submit="conceptCtrl.saveData(title)">
+				<input type="text" name="title" ng-model="title.title" value="{{title.title}}" />
+				<input type="text" name="image" value="{{title.img}}" />
+				<input type="text" name="stars" value="{{title.stars}}" />
+				<input type="hidden" name="_method" value="PUT"/>
+				<button>Update!</button>
+			</form>	
+		</div>
+	</div>
+</div>	
 </section>

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Category = require('./category.js');
 
 var conceptSchema = mongoose.Schema({
   title: String,

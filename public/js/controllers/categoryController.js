@@ -22,26 +22,9 @@ app.controller('categoryContoller', ['$http', function($http) {
     }
   );
 
-  
-  this.saveData = function(id, data) {
-    $http.put('/categories/'+id, data).then(
-      function(response) {
-        console.log("CONTENT UPDATED")
-      },
-      function(error) {
-        console.log(error);
-      }
-    );
-  };
 
 
 
 }]);
 
 
-// app.controller("FormController", ['$scope', '$http', function($scope, $http) {
-//   var self = this;
-
-//   if(this.)
-
-// }]);

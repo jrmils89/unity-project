@@ -1,20 +1,13 @@
 var express = require('express');
 var router  = express.Router();
 var Category = require('../models/category.js');
+var Concept = require('../models/concept.js');
 
 router.get('/', function(req, res) {
   Category.find({}).sort('title').exec(function(err, data) {
     res.json(data);
   });
 });
-
-router.get('/:id', function(req, res) {
-  Category.findById(req.params.id, function(err, data) {
-    console.log('data from put route: ', req.body);
-    res.json(data);
-  });
-});
-
 
 
 
@@ -25,23 +18,73 @@ router.post('/', function(req, res) {
 });
  
 
-// making put route for category concepts
-router.put('/:id', function(req, res){
-  console.log('data from put route: ', req.body);
-  Category.findByIdAndUpdate(req.params.id, req.body, function(err, category){
-      res.send(category);
+
+
+//get info by name
+router.get("/:name", function(req, res){
+  Category.find({title:req.params.name}, function(error, data){
+    console.log('===============================');
+    console.log('Name of catagory: ', data);
+    console.log('===============================');
+    res.send(data);
   });
 });
 
 
 
+// // conceptid must be declared in concept controller with $routeparams
+// router.put("/:name/:conceptid", function(req, res){
+//   // console.log(conceptid);
+//   // Category.find({title:req.params.id}, function(error, data){
 
-//get regions info by name
-router.get("/:name", function(req, res){
-  Category.find({title:req.params.name}, function(error, data){
-    res.send(data)
-  })
-})
+//     Concept.findById({conceptid:req.params.conceptid}, function(error, data){
+
+//     console.log('===============================');
+//     console.log('ID of single concept: ', + data);
+//     console.log('===============================');
+//     res.send(data);
+
+//     // });
+//   });
+// });
+
+
+
+
+
+// making put route for category concepts
+router.put('/:name', function(req, res){
+  console.log('data from put route: ', req.body);
+  console.log('================================');
+  // Category.findOne(req.params.name, function(err, data){
+
+    Category.findOneAndUpdate(
+
+    { "title": req.params.name, "concept._id": req.body._id },
+    { 
+        "$set": {
+            "concept.$": req.body
+        }
+    },
+    function(err, data) {
+
+      console.log('CONCEPT TITLE:'  + req.params.name);
+
+      console.log('================================');
+      console.log(data)
+      console.log('================================');
+
+      res.send(data);
+    }
+      )
+      // {title: req.params.id}, req.body, function(err, newconcept){
+       
+    });
+  
+
+
+
+
 
 router.get('/seed', function(req, res) {
   var data = [
