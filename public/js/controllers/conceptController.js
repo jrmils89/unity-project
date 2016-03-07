@@ -6,7 +6,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 	this.name = $routeParams.name;
 
 	this.user = {};
-  this.user.loggedIn = false;
+  	this.user.loggedIn = false;
 	var cookies = $cookies.getAll();
 
 	if (cookies.userUsername && cookies.userEmail) {
@@ -21,21 +21,14 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 	$scope.$on('user-logged-in', function(eventObj, data){
         self.user = data;
     });
-
 	$scope.$on('user-logged-out', function(eventObj, data){
 	        self.user = data;
     });
-
     $scope.$on('user-signed-up', function(eventObj, data){
     	self.user = data;
     })
 
-	this.concepName = 'Controller'
-
 	this.concept = [];
-
-
-
 
 	$http.get("/categories/" + this.name).then(
 		function(response){
@@ -47,18 +40,11 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 		}
 	)
 
-
-
-
 	this.edit = false;
 
     this.revealConcepts = function(){
     	self.edit = !self.edit
   	};
-
-  
-
-
 
   this.saveData = function(data) {
     $http.put('/categories/'+ self.name, data).then(

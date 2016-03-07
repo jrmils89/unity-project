@@ -5,6 +5,15 @@
 	</div>
 
 
+	{{categoryCtrl.categoryNames}}
+	<div>
+		<h3>Add a category</h3>
+		<form ng-submit="categoryCtrl.addCategory()">
+			<input type="text" name="title" ng-model="categoryCtrl.newCategory.title" placeholder="Category Title">
+			<button>Add Concept</button>
+		</form>
+	</div>
+
 
 	<div id="landing-list-container">
 	

@@ -8,11 +8,9 @@ router.get('/', function(req, res) {
   });
 });
 
-
-
 router.post('/', function(req, res) {
   Category.create(req.body, function(err, data) {
-    res.send(data);
+    res.json(data);
   });
 });
 

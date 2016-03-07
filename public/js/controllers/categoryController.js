@@ -22,6 +22,31 @@ app.controller('categoryContoller', ['$http', function($http) {
     }
   );
 
+  this.newCategory = {}
+
+  this.addCategory = function(){
+    console.log("adding category")
+    // $http.post("/categories/" + self.name).then(
+    //  function(response){
+    //    console.log(response)
+    //  },
+    //  function(error){
+    //    console.log(error)
+    //  }
+    // )
+    $http({
+      method:"POST",
+      url: "/categories",
+      data: this.newCategory
+    }).then(
+      function(response){
+        console.log(response.data)
+      },
+      function(error){
+        console.log(error)
+      }
+    )
+  }
 
 
 

@@ -1,26 +1,41 @@
 <section class="concept">
+	<h1 style="color:red">conceptCtrl</h1>
+	{{conceptCtrl}}<br>
+
+
+	<h1>{{conceptCtrl.name}}</h1>
+
+	<div id="addConcept">
+
+	<h1 style="color:red">conceptCtrl.concept</h1>
+	{{conceptCtrl.concept}}
+
+	</div>
+
 	<div ng-if="conceptCtrl.user.isAdmin === false || conceptCtrl.user.loggedIn === false">
 		<div ng-repeat="concept in conceptCtrl.concept">
+
 			<div ng-repeat="title in concept.concept | filter:title.approved=true">
 			<h2>Title: {{title.title}}</h2>
 			<p>Stars: {{title.stars}}</p>
 			</div>
 		</div>
 	</div>
+
 	<div ng-if="conceptCtrl.user.isAdmin">
 		<div ng-repeat="concept in conceptCtrl.concept">
 			<div ng-repeat="title in concept.concept">
-			<h2 ng-click="conceptCtrl.revealConcepts()">Title: {{title.title}}</h2>
-			<p>Stars: {{title.stars}}</p>
-			<div id="edit" ng-show="conceptCtrl.edit">
-				<form ng-submit="conceptCtrl.saveData(title)">
-					<input type="text" name="title" ng-model="title.title" value="{{title.title}}" />
-					<input type="text" name="image" value="{{title.img}}" />
-					<input type="text" name="stars" value="{{title.stars}}" />
-					<button ng-click="conceptCtrl.edit = ! conceptCtrl.edit">Update!</button>
-				</form>
-			</div>
-			</div>
-		</div>
+				<h3 ng-click="conceptCtrl.revealConcepts()">Title: {{title.title}}</h3>
+				<p>Stars: {{title.stars}}</p>
+				<div id="edit" ng-show="conceptCtrl.edit">
+					<form ng-submit="conceptCtrl.saveData(title)">
+						<input type="text" name="title" ng-model="title.title" value="{{title.title}}" />
+						<input type="text" name="image" value="{{title.img}}" />
+						<input type="text" name="stars" value="{{title.stars}}" />
+						<button ng-click="conceptCtrl.edit = ! conceptCtrl.edit">Update!</button>
+					</form>
+				</div>
+			</div><!-- ends title in concept.concept repeat -->
+		</div> <!-- ends concept in conceptCtrl.concept repeat -->
 	</div>
 </section>
