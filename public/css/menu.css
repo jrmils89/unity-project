@@ -5,7 +5,8 @@ section#menuToggle{
 
 section#menuToggle h3{
 	text-transform: uppercase;
-	display:inline;
+	width: 100%;
+	text-align: center;
 }
 
 section#menuToggle img{
@@ -27,10 +28,4 @@ section#menuToggle ul{
 	position: absolute;
 	z-index: 999;
 	background-color: white;
-}
-
-login-directive {
-	position: fixed;
-	top: 0;
-	right: 0;
 }

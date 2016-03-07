@@ -6,3 +6,28 @@
 section{
 	padding:10px;
 }
+
+login-directive {
+	text-align: center;
+}
+
+login-directive form {
+	/*margin-bottom: .4em;*/
+}
+
+
+input {
+	border: solid 1px black;
+	height: 3em;
+	background: transparent;
+	min-width: 15%;
+}
+
+button {
+	border: solid 1px black;
+	background: transparent;
+	height: 3em;
+	min-width: 15%;
+	margin-top: .3em;
+	margin-bottom: .3em;
+}

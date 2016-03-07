@@ -1,12 +1,11 @@
-
 <section id="menuToggle">
+	<div id="toggleCategoryContainer" >
+		<img ng-click="categoryCtrl.revealCategories()" src="img/menuToggle.svg" >
+		<h3 ng-click="categoryCtrl.revealCategories()">Categories</h3>
+		<login-directive></login-directive>
 
-	<div id="toggleCategoryContainer" ng-click="categoryCtrl.revealCategories()">
-		<img src="img/menuToggle.svg">
-		<h3>Categories</h3>
 	</div>
-	<br>
-	<login-directive></login-directive>
+
 
 	<div id="dropdownMenu" ng-show="categoryCtrl.show">
 		<ul >
@@ -14,7 +13,4 @@
 		</ul>
 		<input class="category-search" type="text" ng-model="search" placeholder="Search" />
 	</div>
-
-
-
 </section>
