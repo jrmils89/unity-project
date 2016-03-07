@@ -22,6 +22,7 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
   this.login = function(data) {
       $http.post('/users/login', data).then(
       function(response) {
+        console.log(response);
         var cookies = $cookies.getAll();
         self.user = {
           username: cookies.userUsername,
