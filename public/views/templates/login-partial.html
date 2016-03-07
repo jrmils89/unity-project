@@ -1,11 +1,9 @@
 <p ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</p>
 
-
 <signup-directive></signup-directive>
 
 <br>
 
-Log In
 <form ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
 		<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address"><br/>
 		<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password"><br/>
