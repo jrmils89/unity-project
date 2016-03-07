@@ -6,22 +6,31 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 	// this.user.signedUp = false;
 	this.user.loggedIn = false;
 
-	// $scope.$on('user-logged-in', function(eventObj, data){
- //        self.user = data;
- //    });
+	var cookies = $cookies.getAll();
 
-	// $scope.$on('user-logged-out', function(eventObj, data){
-	//         self.user = data;
- //    });    
+	if (cookies.userUsername && cookies.userEmail && cookies.userPassword) {
+		self.user = {
+			username: cookies.userUsername,
+			email: cookies.userEmail,
+			password: cookies.userPassword,
+			isAdmin: cookies.userIsAdmin,
+			loggedIn: true
+		};
+	};
 
-
-	this.signup = function(){
-
+	this.signup = function(data){
 		console.log("submitting");
-
-		$http.post("/users/signup").then(
+		$http.post("/users/signup", data).then(
 			function(response){
-				self.user.loggedIn = true
+				var cookies = $cookies.getAll();
+				console.log("Cookies: ", cookies)
+				self.user = {
+					username: cookies.userUsername,
+					email: cookies.userEmail,
+					isAdmin: cookies.userIsAdmin
+				};
+				if (cookies.userUsername != null) {self.user.loggedIn = true};
+				$scope.$emit("user-signed-up", self.user);
 				console.log(self.user)
 			},
 			function(error){
@@ -30,3 +39,20 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 		)
 	}
 }])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
