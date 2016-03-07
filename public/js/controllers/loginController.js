@@ -17,7 +17,9 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
     };
   };
 
-
+  $scope.$on('user-signed-up', function(eventObj, data){
+        self.user = data;
+    });
 
   this.login = function(data) {
       $http.post('/users/login', data).then(

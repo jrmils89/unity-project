@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'login-directive']);
+  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'login-directive', 'signup-directive']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({ enabled: true });
@@ -16,3 +16,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     }]);
 
 })();
+
+
+       

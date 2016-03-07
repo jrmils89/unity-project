@@ -1,10 +1,12 @@
 section#menuToggle{
 	text-align:center;
+	position: relative
 }
 
 section#menuToggle h3{
 	text-transform: uppercase;
-	display:inline;
+	width: 100%;
+	text-align: center;
 }
 
 section#menuToggle img{
@@ -17,7 +19,13 @@ section#menuToggle ul{
 	text-transform: uppercase;
 }
 
-#toggleCategoryContainer, #dropdownMenu{
+#toggleCategoryContainer {
+	width: 100%;
+}
+
+#dropdownMenu{
 	width:100%;
-	/*display:block;*/
+	position: absolute;
+	z-index: 999;
+	background-color: white;
 }
