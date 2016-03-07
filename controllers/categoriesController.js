@@ -15,7 +15,7 @@ router.post('/', function(req, res) {
     res.send(data);
   });
 });
- 
+
 
 
 
@@ -33,7 +33,7 @@ router.get("/:name", function(req, res){
 router.put('/:name', function(req, res){
     Category.findOneAndUpdate(
       { "title": req.params.name, "concept._id": req.body._id },
-      { 
+      {
         "$set": {
             "concept.$": req.body
         }
@@ -43,10 +43,6 @@ router.put('/:name', function(req, res){
     }
       )
 });
-  
-
-
-
 
 
 router.get('/seed', function(req, res) {
