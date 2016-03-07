@@ -26,7 +26,7 @@ html, body{
 	width: 100%;
 	text-align: center;
 /*	border: 1px solid black;
-*/	margin: 0 auto;
+*/	margin: 2em auto;
 
 }
 
@@ -53,13 +53,16 @@ input.placeholder {
 
 #landing-list-container{
 	height: 100%;
-	width: 100%;
-	margin: 0 auto;
-/*	border: solid 1px black;
-*/	/*border: 1px solid blue;*/
+	width: 20%;
+	margin: 20px auto;
+	padding-top: 1.5em;
+	padding-bottom: 2em;
+	border: solid 1px black;
+	/*border: 1px solid blue;*/
 	animation-name: turnups;
-	animation-duration: 1s;
+	animation-duration: 3s;
 }
+
 
 @keyframes turnups {
     0%   {height:0%; opacity: 0}
@@ -69,25 +72,39 @@ input.placeholder {
 
 
 /*========================================================================*/
-	/*gif i thought about using */
-/*www.engineersgarage.com/sites/default/files/imagecache/Original/wysiwyg_imageupload/4214/if-else-code-flow.gif
-*/
+
 .list-item{
-	height: 8%;
-	width: 100%;
-/*	background-color: white;
-*//*	border-bottom: 1px solid black;*/
+	height: 12%;
+	width: 80%;
+	margin: 0 auto;
+/*	border-bottom: 1px solid black;*/
 	text-align: center;
-/*	padding-top: 1em;
-*/}
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
+
+
+
+
+a.category-links{
+	text-decoration: none;
+	color: black;
+	font-size: 150%;
+	font-family: 'Raleway';
+}
+
+
+
+
 
 .list-item:hover{
 
-	background-color: #d5fcf5;
-/*	background-image: url('www.engineersgarage.com/sites/default/files/imagecache/Original/wysiwyg_imageupload/4214/if-else-code-flow.gif');
-	background-size: cover;*/
+	background-color: black;
 }
 
+.list-item:hover a{
+	color: white;
+}
 
 
 /*========================================================================*/

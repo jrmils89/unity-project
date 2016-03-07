@@ -3,12 +3,47 @@
 	padding: 0;
 }
 
+
+/*#login-form-toggle{
+
+	height: 5em;
+	width: 10%;
+	border: 2px solid black;
+	border-radius: 50%;
+
+}
+*/
+
+
+
+
+#login-container{
+
+	height: 5em;
+	width: 100%;
+	margin: 0 auto;
+	border-bottom: 2px solid black;
+
+	animation-name: login;
+	animation-duration: 3s;
+}
+
+/*
+@keyframes login {
+    0%   {width:0%; opacity: 0;}
+    50%  {opacity: .50}
+    100% {width:100%; opacity: 1;}
+}
+
+
+*/
+
 section{
 	padding:10px;
 }
 
 login-directive {
-	text-align: center;
+	/*text-align: center;*/
 }
 
 login-directive form {
@@ -20,14 +55,54 @@ input {
 	border: solid 1px black;
 	height: 3em;
 	background: transparent;
-	min-width: 15%;
+	min-width: 14%;
+	animation-name: input;
+	animation-duration: 3s;
 }
+/*
+
+@keyframes input {
+    0%   {width:0%; opacity: 0; height: 0em;}
+    50%  {opacity: .75}
+    100% {width:14%; opacity: 1; height: 3em;}
+}
+
+
+*/
+
+/*input field styling / removing blue highslight when field is clicked*/
+input.login-field:focus {
+    outline-width: 0;
+}
+
+
 
 button {
 	border: solid 1px black;
 	background: transparent;
-	height: 3em;
-	min-width: 15%;
+	height: 2em;
+	min-width: 8%;
 	margin-top: .3em;
 	margin-bottom: .3em;
+	margin-left: 1em;
+	animation-name: button;
+	animation-duration: 3s;
 }
+
+
+@keyframes button {
+    0%   {width:0%; opacity: 0; height: 0em;}
+    50%  {opacity: .75}
+    100% {width:8%; opacity: 1; height: 2em;}
+}
+
+
+
+button:hover{
+	background-color: black;
+	color: white;
+}
+
+
+
+

@@ -1,9 +1,15 @@
-<form class="login-form" ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
-		<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address">
-		<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password"><br/>
-		<button type="submit">Log In</button>
-</form>
-<div class="logout-form">
-	<span ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</span><br/>
-	<button ng-if="loginCtrl.user.username != null" ng-click="loginCtrl.logout()">Log Out</button>
+<!-- ng-click="loginCtrl.revealLogin()" -->
+<!-- ng-show="loginCtrl.show" -->
+<!-- <div id="login-reveal"></div> -->
+
+<div id="login-container" >
+	<form class="login-form" ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
+		<input class="login-field" type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address">
+		<input class="login-field" type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password">
+		<button type="submit" ng-click="loginCtrl.show = !loginCtrl.show">Log In</button>
+	</form>
+	<div class="logout-form">
+		<span ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</span><br/>
+		<button ng-if="loginCtrl.user.username != null" ng-click="loginCtrl.logout()">Log Out</button>
+	</div>
 </div>

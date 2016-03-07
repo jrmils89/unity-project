@@ -18,6 +18,10 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
   };
 
 
+  this.revealLogin = function(){
+    self.show = !self.show;
+  }
+
 
   this.login = function(data) {
       $http.post('/users/login', data).then(
