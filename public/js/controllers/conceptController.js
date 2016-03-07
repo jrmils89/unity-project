@@ -1,4 +1,5 @@
 var app = angular.module("conceptController", ['ngCookies']);
+var ospry = new Ospry('sk-test-az04lqf40ktzhht4iwe311f8');
 
 app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope', function($http, $routeParams, $cookies,$scope){
 	var self = this;
@@ -53,19 +54,39 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
     	self.edit = !self.edit
   	};
 
-  
 
 
+  this.saveData = function(data,index) {
+		console.log(document.getElementById("formFile"+index))
+		if (document.getElementById("formFile"+index).value != "") {
+			ospry.up(
+						{
+					form: document.getElementById("testForm"+index),
+					imageReady: function(err, metadata) {
+						console.log(err);
+						data.img = metadata.httpsURL;
+							$http.put('/categories/'+ self.name, data).then(
+								function(response) {
+									console.log(response);
+								},
+								function(error) {
+									console.log(error);
+								}
+							);
+					},
+				}
+			);
+		} else {
+			$http.put('/categories/'+ self.name, data).then(
+				function(response) {
+					console.log(response);
+				},
+				function(error) {
+					console.log(error);
+				}
+			);
+		}
 
-  this.saveData = function(data) {
-    $http.put('/categories/'+ self.name, data).then(
-      function(response) {
-
-      },
-      function(error) {
-        console.log(error);
-      }
-    );
   };
 
 
