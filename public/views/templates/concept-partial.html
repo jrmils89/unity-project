@@ -1,10 +1,19 @@
 <section class="concept">
-	<div ng-repeat="concept in conceptCtrl.concept">
-			<div ng-repeat="title in concept.concept | filter:title.approved=false">
-				<h2>Title: {{title.title}}</h2>
-				<p>Stars: {{title.stars}}</p>
+	<div ng-if="conceptCtrl.user.isAdmin === false || conceptCtrl.user.loggedIn === false">
+		<div ng-repeat="concept in conceptCtrl.concept">
+			<div ng-repeat="title in concept.concept | filter:title.approved=true">
+			<h2>Title: {{title.title}}</h2>
+			<p>Stars: {{title.stars}}</p>
 			</div>
-
-	</div><br>
+		</div>
+	</div>
+	<div ng-if="conceptCtrl.user.isAdmin">
+		<div ng-repeat="concept in conceptCtrl.concept">
+			<div ng-repeat="title in concept.concept">
+			<h2>Title: {{title.title}}</h2>
+			<p>Stars: {{title.stars}}</p>
+			</div>
+		</div>
+	</div>
 
 </section>
