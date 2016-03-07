@@ -15,7 +15,7 @@ router.post('/signup', passport.authenticate('local-signup', {failureRedirect: '
     res.cookie('userUsername', req.user.username);
     res.cookie('userEmail', req.user.email);
     res.cookie('userIsAdmin', req.user.isAdmin);
-    res.json({success: true}, req.user);
+    res.json({success: true});
   }
 );
 
