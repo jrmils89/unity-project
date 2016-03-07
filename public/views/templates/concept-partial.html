@@ -1,8 +1,6 @@
 <section class="concept">
-
 	<div ng-repeat="concept in conceptCtrl.concept">
-
-			<div ng-repeat="title in concept.concept">
+			<div ng-repeat="title in concept.concept | filter:title.approved=false">
 				<h2>Title: {{title.title}}</h2>
 				<p>Stars: {{title.stars}}</p>
 			</div>

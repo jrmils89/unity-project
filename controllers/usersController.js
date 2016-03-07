@@ -21,6 +21,7 @@ router.post('/login', passport.authenticate('local-login', {failureRedirect: '/u
     res.cookie('userid', req.user.id);
     res.cookie('userUsername', req.user.username);
     res.cookie('userEmail', req.user.email);
+    res.cookie('userIsAdmin', req.user.isAdmin);
     res.json(req.user)
   }
 );
@@ -31,6 +32,7 @@ router.get('/logout', function(req, res) {
     res.clearCookie('userid');
     res.clearCookie('userUsername');
     res.clearCookie('userEmail');
+    res.clearCookie('userIsAdmin');
     res.json({success: true})
   });
 //
