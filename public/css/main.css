@@ -6,3 +6,7 @@
 section{
 	padding:10px;
 }
+
+signup-directive, login-directive{
+	display: inline-block;
+}

@@ -18,7 +18,7 @@ router.post('/', function(req, res) {
 //get regions info by name
 router.get("/:name", function(req, res){
   Category.find({title:req.params.name}, function(error, data){
-    res.send(data)
+    res.json(data)
   })
 })
 

@@ -22,7 +22,7 @@ app.controller('loginController', ['$http','$cookies', function($http,$cookies) 
         var cookies = $cookies.getAll();
         self.user = {
           username: cookies.userUsername,
-          email: cookies.userEmail,
+          email: cookies.userEmail
         };
         if (cookies.userUsername != null) {self.user.loggedIn = true};
       },

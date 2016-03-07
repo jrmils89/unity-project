@@ -10,9 +10,8 @@ router.get('/', isLoggedIn, function(req, res) {
   });
 });
 
-router.post('/', passport.authenticate('local-signup', {failureRedirect: '/' }),
-  function(req, res) {
-    res.json({success: true});
+router.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/' }), function(req, res) {
+    res.json({success: true}, req.user);
   }
 );
 

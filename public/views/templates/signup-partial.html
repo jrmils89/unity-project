@@ -1,0 +1,9 @@
+Signup
+<form ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="signupCtrl.singup(signupCtrl.user)">
+	<input type="text" ng-model="signupCtrl.user.username" placeholder="Username"><br>
+	<input type="text" ng-model="signupCtrl.user.email" placeholder="Email"><br>
+	<input type="password" ng-model="signupCtrl.user.password" placeholder="Password"><br>
+	<button>Submit</button>
+</form>
+
+<p ng-if="signupCtrl.user.username != null"> Welcome {{signupCtrl.user.username}}</p>
