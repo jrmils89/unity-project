@@ -181,6 +181,16 @@ router.put('/:name', function(req, res){
 });
 
 
+//DELETE
+router.delete("/:name/concepts/:id", function(req, res){
+  var name = req.params.name
+  var id = req.params.id
+  console.log(name)
+  console.log(id)
+  Category.update({title: name}, {$pull:{ "concept": {_id: id} }}, function(error, data){
+    console.log(data)
+  })
+})
 
 
 
