@@ -22,17 +22,18 @@ router.post("/:name", function(req, res){
     // making new concept from "Add Concept" form data
     var newConcept = new Concept(req.body)
     // saving new concept
-    newConcept.save(function(error, newlyCreatedConcept){
-
+    console.log(newConcept)
+    // newConcept.save(function(error, newlyCreatedConcept){
+      // console.log(newlyCreatedConcept)
       //pushing newlyCreatedConcept into categorie's concept array or objects
-      data.concept.push(newlyCreatedConcept)
+      data.concept.push(newConcept)
+      console.log(data.concept)
 
       data.save(function(error, data){
         res.json(data)
       })
     })
   })
-})
 
 router.get('/seed', function(req, res) {
   var cats = [
