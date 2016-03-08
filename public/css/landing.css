@@ -18,7 +18,7 @@ html, body{
 /*========================================================================*/
 
 
-#search-box{
+.search-box{
 
 	height:5%;
 	width: 100%;
@@ -64,7 +64,7 @@ body{
 */
 
 
-#landing-list-container{
+.list-container{
 	background-color: white;
 	opacity: 1;
 	height: 50%;
@@ -72,8 +72,8 @@ body{
 	margin: 0 auto;
 	padding-top: 3em;
 	padding-bottom: 4em;
-	border-left: solid 1px black;
-	border-right: 1px solid black;
+	/*border-left: solid 1px black;*/
+	/*border-right: 1px solid black;*/
 	animation-name: turnups;
 	animation-duration: 1.5s;
 }
@@ -100,14 +100,15 @@ body{
 	position: relative;
 	animation-name: textanim;
 	animation-duration: 1.5s;
+	transition: background-color .15s linear 0s, color .15s linear 0s; 
 }
 
 
-@keyframes textanim {
+/*@keyframes textanim {
     from   {position: absolute;}
     to     {position: relative;}
    
-}
+}*/
 
 
 
@@ -118,6 +119,7 @@ a.category-links{
 	color: black;
 	font-size: 150%;
 	font-family: 'Raleway';
+	/*transition: background-color .3s linear 0s, color .3s linear 0s;*/ 
 }
 
 

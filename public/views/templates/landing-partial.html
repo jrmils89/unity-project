@@ -2,11 +2,7 @@
 
 	
 
-	<div id="search-box">
-		<input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
-	</div>
-		
-	<div id="landing-list-container">
+	<div class="list-container">
 	
 		<div class="list-item" ng-repeat="category in categoryCtrl.categoryNames | filter: search">
 				<a class="category-links" href="/categories/{{category.title}}"><span class="list-text">{{category.title}}</span></a>
@@ -15,9 +11,10 @@
 	</div>
 
 
-
-
-
+	<div class="search-box">
+		<input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
+	</div>
+		
 
 
 

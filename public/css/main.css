@@ -23,10 +23,11 @@
 	width: 100%;
 	margin: 0 auto;
 	border-bottom: 1px solid black;
-	padding: .5em;
+	padding: 2em;
 	animation-name: login;
 	animation-duration: 3s;
 	opacity: 1;
+	display: inline-block;
 }
 
 
@@ -60,6 +61,7 @@ input {
 	min-width: 14%;
 	animation-name: input;
 	animation-duration: 3s;
+	/*margin-top: 30px;*/
 }
 
 
@@ -90,14 +92,10 @@ button {
 	animation-name: button;
 	animation-duration: 4s;
 	font-size: 50%;
+	transition: background-color .2s linear 0s, color .2s linear 0s;
 
 }
 
-
-@keyframes button {
-    from   {width:0%; opacity: 0; height: 0em; font-size: 0%;}
-    to {width:8%; opacity: 1; height: 2em; font-size: 50%;}
-}
 
 
 
@@ -107,5 +105,19 @@ button:hover{
 }
 
 
+#flowly{
+	height: 1.8em;
+	width: 20%;
+	/*border-left: 2px solid black;
+	border-right: 1px solid black;*/
+	float: right;
+	margin-right: 100px;
+	margin-top: -50px;
+	font-size: 200%;
+	font-family: 'Poiret One';
+	/*font-family: 'Raleway';*/
+	text-align: center;
+	padding-top: .5em;
+}
 
 
