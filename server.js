@@ -35,7 +35,8 @@ app.use('/api/v1/categories', categoriesController);
 app.use('/api/v1/users', usersController);
 
 app.get('/', function(req, res) {
-  var url = req.session.valid;
+  res.clearCookie('redirectUrlFlowLy');
+  var url = req.session.valid || 'null';
   res.cookie('redirectUrlFlowLy', url);
   req.session.valid = null;
   res.render('../public/home.html');
