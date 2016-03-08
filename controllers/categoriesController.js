@@ -4,12 +4,13 @@ var Category = require('../models/category.js');
 var Concept = require("../models/concept.js")
 
 router.get('/', function(req, res) {
-  Category.find({}).sort('title').exec(function(err, data) {
+  Category.find({}).sort('normalizedName').exec(function(err, data) {
     res.json(data);
   });
 });
 
 router.post('/', function(req, res) {
+  req.body.normalizedName = req.body.title.toLowerCase();
   Category.create(req.body, function(err, data) {
     res.json(data);
   });
@@ -147,7 +148,9 @@ router.get('/seed', function(req, res) {
     }
   ];
 
-  console.log(cats)
+  for (var i = 0; i < cats.length; i++) {
+    cats[i].normalizedName = cats[i].title.toLowerCase();
+  }
 
   Category.create(cats, function(err, data) {
     res.json(data);
