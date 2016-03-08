@@ -3,12 +3,6 @@ var app = angular.module('categoryContoller', []);
 
 app.controller('categoryContoller', ['$http','$location', function($http,$location) {
   var self = this;
-  
-  var path = document.cookie.replace(/redirectUrlFlowLy=(.*);/, "$1").substring(18).replace(/\%2F*/igm,'/');
-
-  if(path.substring(0,1) == '/') {
-    $location.path(path);
-  }
 
   this.categoryNames = null;
 
