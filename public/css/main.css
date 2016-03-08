@@ -1,20 +1,5 @@
 
 
-/*#login-form-toggle{
-
-	height: 5em;
-	width: 10%;
-	border: 2px solid black;
-	border-radius: 50%;
-
-}
-
-signup-directive, login-directive{
-	display: inline-block;
-}
-
-*/
-
 login-directive {
 	position: absolute;
 }
@@ -26,62 +11,6 @@ login-directive form {
 #editConceptButton, #deleteConceptForm{
 	display:inline;
 }
-
-/*
-#form-container{
-	height: 15em;
-	width: 70%;
-	border: 2px solid black;
-	margin-bottom: 100px;
-	margin-top: 20pt;
-	top: -225pt;
-	left: 250pt;
-	padding: 1.5em;
-	display: block;
-	z-index: 2;
-	position: relative;
-	opacity: .5;
-
-}*/
-
-/*div#form-container{
-	margin: 0 auto;
-}
-*/
-
-
-/*#login-container{
-	background-color: white;
-	height: 4em;
-	width: 60%;
-	margin: 30px auto;
-	border-bottom: 1px solid black;
-	padding: 2em;
-	animation-name: login;
-	animation-duration: 3s;
-	opacity: 1;
-	/*display: block;*/
-}
-*/
-/*@keyframes login {
-    0%   {width:0%; opacity: 0;}
-    50%  {opacity:.33;}
-    75%  {opacity: .66;}
-    100% {width:100%; opacity: 1;}
-}
-
-*/
-
-
-/*#login-container > #form-container {
-	opacity: .5;
-}
-*/
-
-section{
-	padding:10px;
-}
-
 
 
 input {
@@ -99,13 +28,6 @@ input {
 	margin: auto;
 }
 
-/*
-@keyframes input {
-    0%   {width:0%; opacity: 0; height: 0em;}
-    50%  {opacity: .75}
-    100% {width:14%; opacity: 1; height: 3em;}
-}
-*/
 
 
 
@@ -131,27 +53,7 @@ button {
 
 }
 
-
-
-
 button:hover{
 	background-color: black;
 	color: white;
 }
-/*
-
-#flowly{
-	height: 1.8em;
-	width: 20%;
-	/*border-left: 2px solid black;
-	border-right: 1px solid black;*/
-	/*float: right;
-	margin-right: 100px;
-	margin-top: -50px;
-	font-size: 200%;
-	font-family: 'Poiret One';*/
-	/*font-family: 'Raleway';*/
-	/*text-align: center;
-	padding-top: .5em;
-}
-*/

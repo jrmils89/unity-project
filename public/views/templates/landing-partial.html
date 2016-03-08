@@ -1,16 +1,22 @@
-	<div id="header">
+	<header>
+		<!-- signup-directive -->
 		<login-directive></login-directive>
-	</div>
-	<div class="search-box">
-		<input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
-	</div>
-	<form class="add-category" ng-submit="categoryCtrl.addCategory()">
-		<input type="text" name="title" ng-model="categoryCtrl.newCategory.title" placeholder="Category Title">
-		<button>Add Category</button>
-	</form>
-	<div class="list-container">
-		<div class="list-item" ng-repeat="category in categoryCtrl.categoryNames | filter: search">
-				<a class="category-links" href="/categories/{{category.title}}"><span class="list-text">{{category.title}}</span></a>
-		</div>
+	</header>
 
+
+	<div id="landingContainer">
+		<div class="search-box">
+		<h1>Categories</h1>
+			<input class="category-search" type="text" placeholder="Search" ng-model="search" />
+		</div>
+		<form class="add-category" ng-submit="categoryCtrl.addCategory()">
+			<input type="text" name="title" ng-model="categoryCtrl.newCategory.title" placeholder="Add Category">
+			<button ng-show="categoryCtrl.newCategory.title != null">Add Category</button>
+		</form>
+		<div class="list-container">
+			<div class="list-item" ng-repeat="category in categoryCtrl.categoryNames | filter: search">
+					<a class="category-links" href="/categories/{{category.title}}"><span class="list-text">{{category.title}}</span></a>
+			</div>
+
+		</div>
 	</div>

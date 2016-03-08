@@ -60,4 +60,10 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
     );
   };
 
+  this.viewForm = false
+
+  this.showForm = function(){
+    self.viewForm = !self.viewForm
+  }
+
 }]);

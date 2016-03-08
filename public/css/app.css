@@ -1,0 +1,21 @@
+* {
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: "Raleway", sans-serif;
+}
+
+#landingContainer{
+	text-align:center;
+}
+
+#landingContainer>div, #landingContainer>form{
+	display:inline;
+}
+
+header form{
+	display:inline-block;
+}
