@@ -7,6 +7,7 @@
 	<div ng-if="conceptCtrl.user.isAdmin === false || conceptCtrl.user.loggedIn === false">
 		<div ng-repeat="concept in conceptCtrl.concept">
 			<div ng-repeat="title in concept.concept | filter:title.approved=true">
+			<img ng-if="title.img != ''" ng-src="{{title.img}}" alt="Concept Image">
 			<h2>Title: {{title.title}}</h2>
 			<p>Stars: {{title.stars}}</p>
 			</div>
@@ -16,17 +17,20 @@
 	<div ng-if="conceptCtrl.user.isAdmin">
 		<div ng-repeat="concept in conceptCtrl.concept">
 			<div ng-repeat="title in concept.concept">
-				<h3 ng-click="conceptCtrl.revealConcepts()">Title: {{title.title}}</h3>
-				<p>Stars: {{title.stars}}</p>
-				<div id="edit" ng-show="conceptCtrl.edit">
-					<form ng-submit="conceptCtrl.saveData(title)">
-						<input type="text" name="title" ng-model="title.title" value="{{title.title}}" />
-						<input type="text" name="image" value="{{title.img}}" />
-						<input type="text" name="stars" value="{{title.stars}}" />
-						<button ng-click="conceptCtrl.edit = ! conceptCtrl.edit">Update!</button>
-					</form>
-				</div>
-			</div><!-- ends title in concept.concept repeat -->
-		</div> <!-- ends concept in conceptCtrl.concept repeat -->
+			<img ng-if="title.img != ''" ng-src="{{title.img}}" alt="Concept Image">
+			<h2>Title: {{title.title}}</h2>
+			<button ng-click="conceptCtrl.revealConcepts($index)">Edit</button>
+			<p>Stars: {{title.stars}}</p>
+			<div id="edit" ng-show="conceptCtrl.editConcept === $index">
+				<form id="conceptForm{{$index}}" ng-submit="conceptCtrl.saveData(title, $index)">
+					<input type="text" name="title" ng-model="title.title" value="{{title.title}}" /><br/>
+					<input type="number" name="stars" value="{{title.stars}}" /><br/>
+					<input id="formFile{{$index}}" type="file" name="image"  /><br/>
+					<input type="checkbox" ng-model="title.approved">
+					<button ng-click="conceptCtrl.revealConcepts($index)">Update!</button>
+				</form>
+			</div>
+			</div>
+		</div>
 	</div>
 </section>

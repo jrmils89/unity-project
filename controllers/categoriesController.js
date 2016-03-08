@@ -155,7 +155,6 @@ router.get('/seed', function(req, res) {
 });
 
 
-
 //get info by name
 router.get("/:name", function(req, res){
   Category.find({title:req.params.name}, function(error, data){
@@ -180,8 +179,6 @@ router.put('/:name', function(req, res){
     }
       )
 });
-
-
 
 
 
