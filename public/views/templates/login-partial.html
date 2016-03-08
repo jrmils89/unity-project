@@ -1,13 +1,14 @@
-<p ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</p>
-<signup-directive></signup-directive>
-<br>
-<form class="login-form" ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
-		<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address"><br/>
-		<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password"><br/>
-		<button type="submit">Log In</button>
-</form>
-<div class="logout-form">
-	<button ng-if="loginCtrl.user.username != null" ng-click="loginCtrl.logout()">Log Out</button>
-</div>
-<a ng-if="loginCtrl.user.isAdmin === 'true'" href="/users">All Users</a>
+	<p ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</p>
+	<div id="form-container">
+		<signup-directive></signup-directive>
+		<br>
+		<form class="login-form" ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
+			<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address"><br/>
+			<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password"><br/>
+			<button type="submit">Log In</button>
+		</form>
+	</div>
 
+	<div class="logout-form">
+		<button ng-if="loginCtrl.user.username != null" ng-click="loginCtrl.logout()">Log Out</button>
+	</div>

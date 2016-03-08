@@ -17,9 +17,17 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
     };
   };
 
+
+
+  this.revealLogin = function(){
+    self.show = !self.show;
+  }
+
+
   $scope.$on('user-signed-up', function(eventObj, data){
         self.user = data;
     });
+
 
   this.login = function(data) {
       $http.post('/api/v1/users/login', data).then(
