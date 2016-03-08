@@ -5,7 +5,7 @@ var conceptSchema = mongoose.Schema({
   title: String,
   img: String,
   stars: Number,
-  approved: Boolean
+  approved: {type: Boolean, default: false} 
 });
 
 

@@ -28,15 +28,9 @@ router.post("/:name", function(req, res){
     var newConcept = new Concept(req.body)
     // saving new concept
     newConcept.save(function(error, newlyCreatedConcept){
-
-      console.log("newlyCreatedConcept: ", newlyCreatedConcept)
       
       //pushing newlyCreatedConcept into categorie's concept array or objects
       data.concept.push(newlyCreatedConcept)
-      
-      console.log("==========================")
-      console.log("data.concept: ", data.concept)
-      console.log("==========================")
 
       data.save(function(error, data){
         res.json(data)
