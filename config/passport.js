@@ -61,6 +61,14 @@ module.exports = function(passport) {
             newUser.email = email;
             newUser.username = req.body.username;
             newUser.password = newUser.generateHash(password);
+            newUser.save(function(err) {
+              if(err){
+                console.log(err)
+                throw err
+              } else {
+                return done(null, newUser);
+              }
+            }); //end save user
 
             // If the newUser doesn't have a valid email break
             if (!newUser.validEmail(newUser.email)) {

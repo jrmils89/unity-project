@@ -18,14 +18,21 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
   };
 
 
+
   this.revealLogin = function(){
     self.show = !self.show;
   }
 
 
+  $scope.$on('user-signed-up', function(eventObj, data){
+        self.user = data;
+    });
+
+
   this.login = function(data) {
       $http.post('/users/login', data).then(
       function(response) {
+        console.log(response);
         var cookies = $cookies.getAll();
         self.user = {
           username: cookies.userUsername,

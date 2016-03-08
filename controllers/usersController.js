@@ -10,13 +10,16 @@ router.get('/', isLoggedIn, function(req, res) {
   });
 });
 
-router.post('/', passport.authenticate('local-signup', {failureRedirect: '/' }),
-  function(req, res) {
+router.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/' }), function(req, res) {
+    res.cookie('userid', req.user.id);
+    res.cookie('userUsername', req.user.username);
+    res.cookie('userEmail', req.user.email);
+    res.cookie('userIsAdmin', req.user.isAdmin);
     res.json({success: true});
   }
 );
 
-router.post('/login', passport.authenticate('local-login', {failureRedirect: '/users'}), function(req, res) {
+router.post('/login', passport.authenticate('local-login', {failureMessage: 'fail'}), function(req, res) {
     // When the user successfully logs 3 different cookies are set, that will be user on the front end side
     res.cookie('userid', req.user.id);
     res.cookie('userUsername', req.user.username);

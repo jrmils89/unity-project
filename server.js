@@ -2,13 +2,14 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
-var db = mongoose.connection;
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var db = mongoose.connection;
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/flow-ly';
 
 
-mongoose.connect('mongodb://localhost/flow-ly');
+mongoose.connect(mongoUri);
 
 app.use(express.static('public'));
 
