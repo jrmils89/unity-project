@@ -4,7 +4,6 @@ app.controller("usersController", ["$http",'$location', function($http,$location
 	var self = this;
 
 	this.users = [];
-	this.editUpdateButtonText = 'Edit';
 
 	this.getUsers = function() {
 		$http.get('/api/v1/users').then(
@@ -42,7 +41,6 @@ app.controller("usersController", ["$http",'$location', function($http,$location
 				}
 			);
 		};
-
 	};
 
 	this.getUsers();
