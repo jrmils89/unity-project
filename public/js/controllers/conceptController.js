@@ -48,7 +48,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 	)
 
 
-
+	this.editConcept = null;
   this.revealConcepts = function(index){
 		if (self.editConcept === index) {
 			self.editConcept = null;
