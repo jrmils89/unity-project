@@ -1,8 +1,19 @@
-var app = angular.module('categoryContoller', []);
+var app = angular.module('categoryContoller', ['ngCookies']);
 
 
-app.controller('categoryContoller', ['$http', function($http) {
+app.controller('categoryContoller', ['$http','$location','$cookies', function($http,$location,$cookies) {
   var self = this;
+
+  // This gets a cookie that was set by the server if the user requested a path other than '/'
+  // If it finds that cookie and it's not either null or '/favicon' then it will redirect the window
+  // to the requested path. The '/favicon' part is a placeholder in there until the application has a favicon...
+  
+  var path = $cookies.get('redirectUrlFlowLy');
+
+  if(path != 'null' && path != '/favicon.ico') {
+    $cookies.put('redirectUrlFlowLy','null');
+    $location.path(path);
+  }
 
   this.categoryNames = null;
 
@@ -13,7 +24,7 @@ app.controller('categoryContoller', ['$http', function($http) {
   };
 
   // Makes a GET request to the server /categories route
-  $http.get('/categories').then(
+  $http.get('/api/v1/categories').then(
     function(response) {
       self.categoryNames = response.data;
     },

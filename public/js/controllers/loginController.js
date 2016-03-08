@@ -30,9 +30,8 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
 
 
   this.login = function(data) {
-      $http.post('/users/login', data).then(
+      $http.post('/api/v1/users/login', data).then(
       function(response) {
-        console.log(response);
         var cookies = $cookies.getAll();
         self.user = {
           username: cookies.userUsername,
@@ -49,7 +48,7 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
   }
 
   this.logout = function() {
-    $http.get('/users/logout').then(
+    $http.get('/api/v1/users/logout').then(
       function(response) {
         self.user = {};
         self.user.loggedIn = false;

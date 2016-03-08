@@ -19,7 +19,7 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 	};
 
 	this.signup = function(data){
-		$http.post("/users/signup", data).then(
+		$http.post("/api/v1/users/signup", data).then(
 			function(response){
 				var cookies = $cookies.getAll();
 				self.user = {
