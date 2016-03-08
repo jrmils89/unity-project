@@ -43,8 +43,8 @@ app.get('/', function(req, res) {
 });
 
 app.get(/^((?!\/api).)*$/, function(req, res) {
-  req.session.valid = req.originalUrl
-  res.redirect('/')
+  req.session.valid = req.originalUrl;
+  res.redirect('/');
 });
 
 
