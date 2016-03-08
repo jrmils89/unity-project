@@ -35,6 +35,12 @@ app.use('/api/v1/categories', categoriesController);
 app.use('/api/v1/users', usersController);
 
 app.get('/', function(req, res) {
+  if (!req.isAuthenticated()) {
+    res.clearCookie('userid');
+    res.clearCookie('userUsername');
+    res.clearCookie('userEmail');
+    res.clearCookie('userIsAdmin');
+  };
   res.clearCookie('redirectUrlFlowLy');
   var url = req.session.valid || 'null';
   res.cookie('redirectUrlFlowLy', url);
