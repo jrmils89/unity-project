@@ -61,9 +61,8 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 		if (document.getElementById("formFile"+index).value != "") {
 			ospry.up(
 						{
-					form: document.getElementById("testForm"+index),
+					form: document.getElementById("conceptForm"+index),
 					imageReady: function(err, metadata) {
-						console.log(err);
 						data.img = metadata.httpsURL;
 							$http.put('/api/v1/categories/'+ self.name, data).then(
 								function(response) {

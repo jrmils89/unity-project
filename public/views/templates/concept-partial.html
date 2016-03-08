@@ -16,7 +16,7 @@
 			<button ng-click="conceptCtrl.revealConcepts($index)">Edit</button>
 			<p>Stars: {{title.stars}}</p>
 			<div id="edit" ng-show="conceptCtrl.editConcept === $index">
-				<form id="testForm{{$index}}" ng-submit="conceptCtrl.saveData(title, $index)">
+				<form id="conceptForm{{$index}}" ng-submit="conceptCtrl.saveData(title, $index)">
 					<input type="text" name="title" ng-model="title.title" value="{{title.title}}" /><br/>
 					<input type="number" name="stars" value="{{title.stars}}" /><br/>
 					<input id="formFile{{$index}}" type="file" name="image"  /><br/>
