@@ -1,24 +1,20 @@
 $(document).ready(function(){
 
 
-	$player2 = $('#player2');
+	// $initializeLogin = $('#initialize-login');
+
+	$form = $('#form-container');
 
 
+	$('#initialize-login').click(function(event) {
 
 	
-	$addFirst.click(function() {
+		$(form).animate({ top: -90pt }, {duration: 'slow' , 'easeInOutElastic'
 
-	
-		$name1 = $('<p>');
-		
-		// so i can move the typed input value 
-		$name1.html($value1.val()); 
-		
-		$player1.append($name1);
-		
-		// console.log($player1);
 
-	});
+		);
+
+});
 
 
 

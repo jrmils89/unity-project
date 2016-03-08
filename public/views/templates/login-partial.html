@@ -1,18 +1,22 @@
-<div id="login-container">
-	<p ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</p>
+<!-- <div id="login-container"> --> 
 
-	<signup-directive></signup-directive>
-	<br>
-	<form class="login-form" ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
+
+	<p ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</p>
+	<div id="form-container">
+		<signup-directive></signup-directive>
+		<br>
+		<form class="login-form" ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
 			<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address"><br/>
 			<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password"><br/>
 			<button type="submit">Log In</button>
-	</form>
+		</form>
+	</div>
+
 	<div class="logout-form">
 		<button ng-if="loginCtrl.user.username != null" ng-click="loginCtrl.logout()">Log Out</button>
 	</div>
-	<div id="flowly">
+	<!-- <div id="flowly">
 			FLOW-LY
-	</div>
-	
-</div>
+	</div> -->
+
+<!-- </div>

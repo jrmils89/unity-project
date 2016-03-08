@@ -1,7 +1,16 @@
-html, body{
-	height: 100%;
+
+
+/*.ng-scope{
+	position: absolute;
+}*/
+
+#header{
+	height: 6em;
 	width: 100%;
+	border-bottom: 1px solid black;
+
 }
+
 
 /*div containing the entire landing view*/
 #landing-container{
@@ -10,9 +19,44 @@ html, body{
 	height: 90%;
 	width: 80%;
 	border: 1px solid black;
+	margin-left: 60pt;
+	position: relative;
+	/*top: 30pt;*/
+	/*left: 400pt;*/
+	/*margin: 0 auto;*/
+	
+}
+
+
+
+#initialize-login{
+	height: 3.2em;
+	width: 12%;
+	background-color: black;
+	text-align: center;
 	padding-top: 2em;
 	margin: 10px auto;
+	border-radius: 4%;
+	font-family: 'Poiret One';
+	color: white;
+	transition: all .35s ease-in-out;
+	-webkit-transition: all .35s ease-in-out;
+	-moz-transition: all .35s ease-in-out;
+	-ms-transition: all .35s ease-in-out;
+	-o-transition: all .35s ease-in-out;
 }
+
+
+
+#initialize-login:hover{
+
+	border-radius: 100%;
+	transform: rotate(360deg);
+}
+
+
+
+
 
 
 /*========================================================================*/
@@ -24,7 +68,7 @@ html, body{
 	width: 100%;
 	text-align: center;
 /*	border: 1px solid black;
-*/	margin: 3em auto;
+*/	margin: 1em auto;
 
 }
 
