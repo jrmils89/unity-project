@@ -4,10 +4,17 @@
 		<input class="category-search" type="text" placeholder="SEARCH CATEGORY" ng-model="search" />
 	</div>
 
+	<div>
+		<h3>Add a category</h3>
+		<form ng-submit="categoryCtrl.addCategory()">
+			<input type="text" name="title" ng-model="categoryCtrl.newCategory.title" placeholder="Category Title">
+			<button>Add Category</button>
+		</form>
+	</div>
 
 
 	<div id="landing-list-container">
-	
+
 		<div class="list-item" ng-repeat="category in categoryCtrl.categoryNames | filter: search">
 				<a href="/categories/{{category.title}}"><span class="list-text">{{category.title}}</span></a>
 		</div>

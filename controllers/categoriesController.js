@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 var Category = require('../models/category.js');
+var Concept = require("../models/concept.js")
 
 router.get('/', function(req, res) {
   Category.find({}).sort('title').exec(function(err, data) {
@@ -8,13 +9,30 @@ router.get('/', function(req, res) {
   });
 });
 
-
-
 router.post('/', function(req, res) {
   Category.create(req.body, function(err, data) {
-    res.send(data);
+    res.json(data);
   });
 });
+
+router.post("/:name", function(req, res){
+
+  //finding Category by current page URI I am on.
+  Category.findOne({"title":req.params.name}, function(error, data){
+    // making new concept from "Add Concept" form data
+    var newConcept = new Concept(req.body)
+    // saving new concept
+    newConcept.save(function(error, newlyCreatedConcept){
+
+      //pushing newlyCreatedConcept into categorie's concept array or objects
+      data.concept.push(newlyCreatedConcept)
+
+      data.save(function(error, data){
+        res.json(data)
+      })
+    })
+  })
+})
 
 router.get('/seed', function(req, res) {
   var cats = [
