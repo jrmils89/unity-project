@@ -150,7 +150,7 @@ router.get('/seed', function(req, res) {
 
   for (var i = 0; i < cats.length; i++) {
     cats[i].normalizedName = cats[i].title.toLowerCase();
-  }
+  };
 
   Category.create(cats, function(err, data) {
     res.json(data);
