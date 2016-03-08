@@ -37,13 +37,12 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 
 
 
-	$http.get("/categories/" + this.name).then(
+	$http.get("/api/v1/categories/" + this.name).then(
 		function(response){
-			// console.log(response.data)
 			self.concept = response.data
 		},
 		function(error){
-			console.log("error")
+			console.log(error)
 		}
 	)
 
@@ -56,12 +55,12 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
     	self.edit = !self.edit
   	};
 
-  
+
 
 
 
   this.saveData = function(data) {
-    $http.put('/categories/'+ self.name, data).then(
+    $http.put('/api/v1/categories/'+ self.name, data).then(
       function(response) {
 
       },

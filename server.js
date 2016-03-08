@@ -12,6 +12,7 @@ var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/flow-ly';
 mongoose.connect(mongoUri);
 
 app.use(express.static('public'));
+app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -27,10 +28,23 @@ app.use(session({ secret: 'flowlyapplication' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 var categoriesController = require('./controllers/categoriesController.js');
 var usersController = require('./controllers/usersController.js');
-app.use('/categories', categoriesController);
-app.use('/users', usersController);
+app.use('/api/v1/categories', categoriesController);
+app.use('/api/v1/users', usersController);
+
+app.get('/', function(req, res) {
+  var url = req.session.valid;
+  res.cookie('redirectUrlFlowLy', url);
+  req.session.valid = null;
+  res.render('../public/home.html');
+});
+
+app.get(/^((?!\/api).)*$/, function(req, res) {
+  req.session.valid = req.originalUrl
+  res.redirect('/')
+});
 
 
 
