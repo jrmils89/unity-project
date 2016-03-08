@@ -4,7 +4,7 @@
 }
 
 
-/*#login-form-toggle{
+#login-form-toggle{
 
 	height: 5em;
 	width: 10%;
@@ -12,31 +12,33 @@
 	border-radius: 50%;
 
 }
-*/
+
 
 
 
 
 #login-container{
-
-	height: 5em;
+	background-color: white;
+	height: 4em;
 	width: 100%;
 	margin: 0 auto;
-	border-bottom: 2px solid black;
-
+	border-bottom: 1px solid black;
+	padding: .5em;
 	animation-name: login;
 	animation-duration: 3s;
+	opacity: 1;
 }
 
-/*
+
 @keyframes login {
     0%   {width:0%; opacity: 0;}
-    50%  {opacity: .50}
+    50%  {opacity:.33;}
+    75%  {opacity: .66;}
     100% {width:100%; opacity: 1;}
 }
 
 
-*/
+
 
 section{
 	padding:10px;
@@ -59,7 +61,7 @@ input {
 	animation-name: input;
 	animation-duration: 3s;
 }
-/*
+
 
 @keyframes input {
     0%   {width:0%; opacity: 0; height: 0em;}
@@ -68,7 +70,7 @@ input {
 }
 
 
-*/
+
 
 /*input field styling / removing blue highslight when field is clicked*/
 input.login-field:focus {
@@ -86,14 +88,15 @@ button {
 	margin-bottom: .3em;
 	margin-left: 1em;
 	animation-name: button;
-	animation-duration: 3s;
+	animation-duration: 4s;
+	font-size: 50%;
+
 }
 
 
 @keyframes button {
-    0%   {width:0%; opacity: 0; height: 0em;}
-    50%  {opacity: .75}
-    100% {width:8%; opacity: 1; height: 2em;}
+    from   {width:0%; opacity: 0; height: 0em; font-size: 0%;}
+    to {width:8%; opacity: 1; height: 2em; font-size: 50%;}
 }
 
 

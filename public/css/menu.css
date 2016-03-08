@@ -23,9 +23,63 @@ section#menuToggle ul{
 	width: 100%;
 }
 
+.menuimg{
+
+	opacity: .45;
+}
+
+.menuimg:hover{
+
+	opacity: 1.5;
+
+}
+
+
 #dropdownMenu{
 	width:100%;
 	position: absolute;
 	z-index: 999;
 	background-color: white;
 }
+
+
+.menuitem{
+	height: 8%;
+	width: 15%;
+	margin: 0 auto;
+/*	border-bottom: 1px solid black;*/
+	text-align: center;
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
+
+
+a.menucategories{
+	text-decoration: none;
+	color: black;
+	font-size: 150%;
+	font-family: 'Raleway';
+}
+
+
+
+
+.menuitem:hover{
+
+	background-color: black;
+}
+
+.menuitem:hover a{
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+

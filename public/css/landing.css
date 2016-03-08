@@ -18,15 +18,13 @@ html, body{
 /*========================================================================*/
 
 
-/*search box containing input field / everything until #landing-list-container
- / we can probably just delete this unless we want it for something*/
 #search-box{
 
 	height:5%;
 	width: 100%;
 	text-align: center;
 /*	border: 1px solid black;
-*/	margin: 2em auto;
+*/	margin: 3em auto;
 
 }
 
@@ -48,40 +46,69 @@ input.placeholder {
 
 
 /*========================================================================*/
+/*
 
+body{
+	background-image: url('http://i.imgur.com/tBhdAfL.png');
+	background-size: cover;
+	animation-name: img;
+	animation-duration: 3s;
+}
+
+
+@keyframes img {
+    0%   {opacity: 0}
+    50%  {opacity: .75}
+    100% {opacity: 1}
+}
+*/
 
 
 #landing-list-container{
-	height: 100%;
+	background-color: white;
+	opacity: 1;
+	height: 50%;
 	width: 20%;
-	margin: 20px auto;
-	padding-top: 1.5em;
-	padding-bottom: 2em;
-	border: solid 1px black;
-	/*border: 1px solid blue;*/
+	margin: 0 auto;
+	padding-top: 3em;
+	padding-bottom: 4em;
+	border-left: solid 1px black;
+	border-right: 1px solid black;
 	animation-name: turnups;
-	animation-duration: 3s;
+	animation-duration: 1.5s;
 }
 
 
 @keyframes turnups {
     0%   {height:0%; opacity: 0}
-    50%   {opacity: .75}
-    100%     {height:100%; opacity: 1}
+    50%   {opacity: .5}
+    100%     {height:50%; opacity: 1}
 }
 
 
 /*========================================================================*/
 
 .list-item{
-	height: 12%;
+	height: 8%;
 	width: 80%;
 	margin: 0 auto;
 /*	border-bottom: 1px solid black;*/
 	text-align: center;
 	padding-bottom: .5em;
 	padding-top: .5em;
+	display: block;
+	position: relative;
+	animation-name: textanim;
+	animation-duration: 1.5s;
 }
+
+
+@keyframes textanim {
+    from   {position: absolute;}
+    to     {position: relative;}
+   
+}
+
 
 
 
@@ -113,6 +140,7 @@ a.category-links{
 
 .list-text{
 	margin-top: 20px;
+	opacity: 1;
 /*	animation-name: turnuptime;
     animation-duration: 5s;
 */}
