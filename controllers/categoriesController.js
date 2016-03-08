@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 var Category = require('../models/category.js');
+var Concept = require("../models/concept.js")
 
 router.get('/', function(req, res) {
   Category.find({}).sort('title').exec(function(err, data) {
@@ -13,6 +14,36 @@ router.post('/', function(req, res) {
     res.json(data);
   });
 });
+
+router.post("/:name", function(req, res){
+
+  //finding Category by current page URI I am on.
+  Category.findOne({"title":req.params.name}, function(error, data){
+    
+    console.log("==========================")
+    console.log("data.concept array: ", data.concept)
+    console.log("==========================")
+
+    // making new concept from "Add Concept" form data
+    var newConcept = new Concept(req.body)
+    // saving new concept
+    newConcept.save(function(error, newlyCreatedConcept){
+
+      console.log("newlyCreatedConcept: ", newlyCreatedConcept)
+      
+      //pushing newlyCreatedConcept into categorie's concept array or objects
+      data.concept.push(newlyCreatedConcept)
+      
+      console.log("==========================")
+      console.log("data.concept: ", data.concept)
+      console.log("==========================")
+
+      data.save(function(error, data){
+        res.json(data)
+      })
+    })
+  })
+})
 
 router.get('/seed', function(req, res) {
   var data = [
