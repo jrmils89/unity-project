@@ -10,16 +10,16 @@
 	<div ng-if="conceptCtrl.user.isAdmin">
 		<div ng-repeat="concept in conceptCtrl.concept">
 			<div ng-repeat="title in concept.concept">
-			<h2 ng-click="conceptCtrl.revealConcepts()">Title: {{title.title}}</h2>
+			<h2>Title: {{title.title}}</h2>
+			<button ng-click="conceptCtrl.revealConcepts($index)">Edit</button>
 			<p>Stars: {{title.stars}}</p>
-			<div id="edit" ng-show="conceptCtrl.edit">
-				{{$index}}
+			<div id="edit" ng-show="conceptCtrl.editConcept === $index">
 				<form id="testForm{{$index}}" ng-submit="conceptCtrl.saveData(title, $index)">
-					<img ng-src="{{title.img}}" alt="">
-					<input type="text" name="title" ng-model="title.title" value="{{title.title}}" />
-					<input type="text" name="stars" value="{{title.stars}}" />
-					<input id="formFile{{$index}}" type="file" name="image"  />
-					<button ng-click="conceptCtrl.edit = ! conceptCtrl.edit">Update!</button>
+					<img ng-src="{{title.img}}" alt=""><br/>
+					<input type="text" name="title" ng-model="title.title" value="{{title.title}}" /><br/>
+					<input type="number" name="stars" value="{{title.stars}}" /><br/>
+					<input id="formFile{{$index}}" type="file" name="image"  /><br/>
+					<button ng-click="conceptCtrl.revealConcepts($index)">Update!</button>
 				</form>
 			</div>
 			</div>

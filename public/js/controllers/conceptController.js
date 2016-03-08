@@ -49,11 +49,13 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 
 
 
-	this.edit = false;
-
-    this.revealConcepts = function(){
-    	self.edit = !self.edit
-  	};
+  this.revealConcepts = function(index){
+		if (self.editConcept === index) {
+			self.editConcept = null;
+		} else {
+			self.editConcept = index;
+		}
+	};
 
   this.saveData = function(data,index) {
 		if (document.getElementById("formFile"+index).value != "") {
