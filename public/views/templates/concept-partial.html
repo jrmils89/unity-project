@@ -17,7 +17,7 @@
 	<div ng-if="conceptCtrl.user.isAdmin">
 		<div ng-repeat="concept in conceptCtrl.concept">
 			<div ng-repeat="title in concept.concept">
-			<img ng-if="title.img != ''" ng-src="{{title.img}}" alt="Concept Image">
+			<img ng-if="title.img != '' && title.img != null" ng-src="{{title.img}}" alt="Concept Image">
 			<h2>Title: {{title.title}}</h2>
 			<button ng-click="conceptCtrl.revealConcepts($index)">Edit</button>
 			<p>Stars: {{title.stars}}</p>
