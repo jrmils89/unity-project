@@ -59,6 +59,23 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
     }
   };
 
+
+  this.deleteConcept = function(index, concept){
+    console.log("the deleted concept is: ", concept)
+    self.concept[index].concept.splice(index, 1);
+
+    $http.delete("/api/v1/categories/" + self.name + "/concepts/" + concept._id).then(
+      function(response){
+        console.log(response)
+      },
+      function(error){
+        console.log(error)
+      }
+    )
+  }
+
+
+
   this.saveData = function(data, index) {
     if (document.getElementById("formFile" + index).value != "") {
       ospry.up({
