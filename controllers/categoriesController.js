@@ -16,23 +16,11 @@ router.post('/', function(req, res) {
 });
 
 router.post("/:name", function(req, res){
-
-  //finding Category by current page URI I am on.
-  Category.findOne({"title":req.params.name}, function(error, data){
-    // making new concept from "Add Concept" form data
-    var newConcept = new Concept(req.body)
-    // saving new concept
-    newConcept.save(function(error, newlyCreatedConcept){
-
-      //pushing newlyCreatedConcept into categorie's concept array or objects
-      data.concept.push(newlyCreatedConcept)
-
-      data.save(function(error, data){
-        res.json(data)
-      })
-    })
-  })
-})
+  var newConcept = new Concept(req.body);
+  Category.findOneAndUpdate({"title":req.params.name}, {$push: {concept: newConcept}}, {new: true}, function(err, data) {
+     res.json(data)
+   })
+});
 
 router.get('/seed', function(req, res) {
   var cats = [
@@ -147,8 +135,6 @@ router.get('/seed', function(req, res) {
     }
   ];
 
-  console.log(cats)
-
   Category.create(cats, function(err, data) {
     res.json(data);
   });
@@ -181,6 +167,14 @@ router.put('/:name', function(req, res){
 });
 
 
+//DELETE
+router.delete("/:name/concepts/:id", function(req, res){
+  var name = req.params.name
+  var id = req.params.id
+  Category.update({title: name}, {$pull:{ "concept": {_id: id} }}, function(error, data){
+    res.json(data);
+  })
+})
 
 
 

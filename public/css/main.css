@@ -19,6 +19,10 @@ login-directive form {
 	/*margin-bottom: .4em;*/
 }
 
+#editConceptButton, #deleteConceptForm{
+	display:inline;
+}
+
 
 input {
 	border: solid 1px black;
