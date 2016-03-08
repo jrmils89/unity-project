@@ -17,7 +17,7 @@ router.post('/', function(req, res) {
 });
 
 router.get('/seed', function(req, res) {
-  var data = [
+  var cats = [
     {
       title: 'ExpressJS',
       concept: [
@@ -129,8 +129,10 @@ router.get('/seed', function(req, res) {
     }
   ];
 
-  Category.create(data, function(err, data) {
-    res.redirect('/categories')
+  console.log(cats)
+
+  Category.create(cats, function(err, data) {
+    res.json(data);
   });
 });
 

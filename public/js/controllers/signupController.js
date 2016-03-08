@@ -19,11 +19,9 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 	};
 
 	this.signup = function(data){
-		console.log("submitting");
-		$http.post("/users/signup", data).then(
+		$http.post("/api/v1/users/signup", data).then(
 			function(response){
 				var cookies = $cookies.getAll();
-				console.log("Cookies: ", cookies)
 				self.user = {
 					username: cookies.userUsername,
 					email: cookies.userEmail,
@@ -31,7 +29,6 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 				};
 				if (cookies.userUsername != null) {self.user.loggedIn = true};
 				$scope.$emit("user-signed-up", self.user);
-				console.log(self.user)
 			},
 			function(error){
 				console.log(error)

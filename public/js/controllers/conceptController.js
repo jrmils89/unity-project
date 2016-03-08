@@ -38,13 +38,12 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 
 
 
-	$http.get("/categories/" + this.name).then(
+	$http.get("/api/v1/categories/" + this.name).then(
 		function(response){
-			// console.log(response.data)
 			self.concept = response.data
 		},
 		function(error){
-			console.log("error")
+			console.log(error)
 		}
 	)
 
@@ -64,7 +63,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 					imageReady: function(err, metadata) {
 						console.log(err);
 						data.img = metadata.httpsURL;
-							$http.put('/categories/'+ self.name, data).then(
+							$http.put('/api/v1/categories/'+ self.name, data).then(
 								function(response) {
 									return true;
 								},
@@ -76,7 +75,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies",'$scope
 				}
 			);
 		} else {
-			$http.put('/categories/'+ self.name, data).then(
+			$http.put('/api/v1/categories/'+ self.name, data).then(
 				function(response) {
 					return true;
 				},
