@@ -1,5 +1,5 @@
-
-<form ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="signupCtrl.signup(signupCtrl.user)">
+<h3 ng-click="signupCtrl.showForm($index)" ng-if="signupCtrl.user.loggedIn == false">Sign Up</h3>
+<form ng-show="signupCtrl.viewForm == true" id="signup-form" ng-if="signupCtrl.user.loggedIn == false || signupCtrl.user == null" ng-submit="signupCtrl.signup(signupCtrl.user)">
 	<input type="text" ng-model="signupCtrl.user.username" placeholder="Username"><br>
 	<input type="text" ng-model="signupCtrl.user.email" placeholder="Email"><br>
 	<input type="password" ng-model="signupCtrl.user.password" placeholder="Password"><br>

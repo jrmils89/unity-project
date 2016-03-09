@@ -35,8 +35,27 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 			}
 		)
 	}
-}])
 
+	$scope.$on('user-logged-in', function(eventObj, data) {
+	    // console.log(data)
+	    // console.log($scope)
+	    self.user = data;
+	    
+	  });
+
+	$scope.$on("user-logged-out", function(eventObj, data){
+        self.user = {};
+		self.user.loggedIn = false;
+		self.viewForm = false;
+	})
+
+	this.viewForm = false;
+
+	this.showForm = function(index){
+		self.viewForm = !self.viewForm
+	}
+
+}])
 
 
 

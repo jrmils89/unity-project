@@ -23,9 +23,35 @@ section#menuToggle ul{
 	width: 100%;
 }
 
-#dropdownMenu{
-	width:100%;
-	position: absolute;
-	z-index: 999;
-	background-color: white;
+.menuimg{
+
+	opacity: .45;
+	transition: opacity .2s linear 0s, color .2s linear 0s; 
+
 }
+
+.menuimg:hover{
+
+	opacity: 1.5;
+
+}
+
+a.menucategories{
+	text-decoration: none;
+	color: black;
+	font-size: 150%;
+	font-family: 'Raleway';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
