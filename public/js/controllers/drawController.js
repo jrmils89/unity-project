@@ -10,7 +10,7 @@ app.controller("drawController", [function(){
 	this.ctx = document.getElementById('canvas').getContext('2d');
 
 	this.ctx.fillStyle = "white";
-	this.ctx.fillRect(0,0,500,300);
+	this.ctx.fillRect(0,0,self.canvas.width,self.canvas.height);
 	this.ctx.fillStyle = "black";
 
 	this.addElToCanvas = function(e) {
@@ -91,7 +91,7 @@ app.controller("drawController", [function(){
 	this.clear = function() {
 		self.ctx.clearRect(0,0,self.canvas.width, self.canvas.height);
 		this.ctx.fillStyle = "white";
-		this.ctx.fillRect(0,0,500,300);
+		this.ctx.fillRect(0,0,self.canvas.width,self.canvas.height);
 		this.ctx.fillStyle = "black";
 	}
 
