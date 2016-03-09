@@ -1,6 +1,6 @@
 var app = angular.module("drawController", []);
 
-app.controller("drawController", ['$location', function($location){
+app.controller("drawController", [function(){
 	var self = this;
 
 	this.text = null;
@@ -90,6 +90,9 @@ app.controller("drawController", ['$location', function($location){
 
 	this.clear = function() {
 		self.ctx.clearRect(0,0,self.canvas.width, self.canvas.height);
+		this.ctx.fillStyle = "white";
+		this.ctx.fillRect(0,0,500,300);
+		this.ctx.fillStyle = "black";
 	}
 
 	this.download = function() {
