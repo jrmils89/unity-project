@@ -33,7 +33,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
 
   $scope.$on('new-concept-data-added', function(eventObj, data) {
     self.getConceptData();
-  })
+  });
 
   this.concept = [];
 

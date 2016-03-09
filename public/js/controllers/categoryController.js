@@ -57,6 +57,26 @@ app.controller('categoryContoller', ['$http','$location','$cookies', function($h
 
 
 
+
+this.deleteCategory = function(index, title){
+
+  $http.delete('/api/v1/categories/' + self.name).then(
+
+
+    function(response){
+      console.log(response)
+    }, 
+      function(error){
+        console.log(error)
+      }
+    )
+}
+
+
+
+
+
+
 }]);
 
 
