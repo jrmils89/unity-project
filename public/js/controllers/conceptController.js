@@ -61,6 +61,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
 
 
   this.deleteConcept = function(index, concept){
+  	console.log(concept);
     self.concept[0].concept.splice(index, 1);
     $http.delete("/api/v1/categories/" + self.name + "/concepts/" + concept._id).then(
       function(response){

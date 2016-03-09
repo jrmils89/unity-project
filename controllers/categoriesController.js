@@ -175,9 +175,9 @@ router.put('/:name', function(req, res){
 //DELETE CATEGORIES
 router.delete('/:name', function(req, res){
 
-  Category.update(
+  Category.findByIdAndUpdate(
 
-    {$pull: { 'categories': {_id: req.params.name }}},  function(err, data){
+    {_id: req.params.name}, function(err, data){
       
       console.log(data)
     res.json(data)
