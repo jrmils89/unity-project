@@ -9,3 +9,5 @@
 <div class="logout-form">
 	<button ng-if="loginCtrl.user.username != null" ng-click="loginCtrl.logout()">Log Out</button>
 </div>
+<a ng-if="loginCtrl.user.isAdmin === 'true'" href="/users">All Users</a>
+

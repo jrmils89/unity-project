@@ -4,7 +4,7 @@ var User = require('../models/user.js');
 var passport = require('passport');
 
 
-router.get('/', isLoggedIn, function(req, res) {
+router.get('/', isAdmin, function(req, res) {
   User.find({}, function(err, data) {
     res.json(data);
   });
@@ -38,12 +38,12 @@ router.get('/logout', function(req, res) {
     res.clearCookie('userIsAdmin');
     res.json({success: true})
   });
-//
-// router.post('/', function(req, res) {
-//   User.create(req.body, function(err, data) {
-//     res.send(data);
-//   });
-// });
+
+router.put('/:id', function(req, res) {
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, data) {
+    res.json(data);
+  });
+});
 
 function isLoggedIn(req, res, next) {
   // if user is authenticated in the session, carry on
@@ -52,6 +52,16 @@ function isLoggedIn(req, res, next) {
   }
   // if they aren't redirect them to the home page
   res.redirect('/');
+}
+
+
+function isAdmin(req, res, next) {
+  // if user is an admin in the session, carry on
+  if (req.isAuthenticated() && req.user.isAdmin) {
+    return next();
+  }
+  // if they aren't redirect them to the home page
+  res.sendStatus(404);
 }
 
 

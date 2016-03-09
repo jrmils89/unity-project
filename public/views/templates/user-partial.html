@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <th>Username</th>
+    <th>Email Address</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Is Admin</th>
+    <th>Edit</th>
+  </thead>
+
+<tr ng-repeat="user in usersCtrl.users track by $index" id="user{{$index}}">
+  <td><input id="usernameInput" type="text" value="{{user.username}}" ng-model="user.username" disabled></td>
+  <td><input id="emailInput" type="text" value="{{user.email}}" ng-model="user.email" disabled></td>
+  <td><input id="firstNameInput" type="text" value="{{user.firstName}}" ng-model="user.firstName" disabled></td>
+  <td><input id="lastNameInput" type="text" value="{{user.lastName}}" ng-model="user.lastName" disabled></td>
+  <td>
+    <input type="checkbox" value="{{user.isAdmin}}" ng-model="user.isAdmin" disabled/>
+  </td>
+  <td><button id="editUpdateButton{{$index}}" type="button" ng-click="usersCtrl.editUser($index, user)">Edit</button></td>
+</tr>
+
+</table>
+
+<a href="/">Home</a>
