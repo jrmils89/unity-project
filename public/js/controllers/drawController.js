@@ -110,11 +110,7 @@ app.controller("drawController", [function(){
 		var dt = canvas.toDataURL();
 		this.href = dt;
 	};
-
-	this.saveCanvas = function() {
-		self.ctx.save()
-	};
-
+	
 	this.undoCanvas = function() {
 		var poppedEl = self.drawing.pop();
 		if (poppedEl) {self.redoDrawing.unshift(poppedEl)};
