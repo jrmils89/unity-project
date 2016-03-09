@@ -8,11 +8,25 @@ body{
 	font-family: "Raleway", sans-serif;
 }
 
+input{
+	padding:5px;
+}
+
+button{
+	background-color: #fff;
+	border:solid 2px #000;
+}
+
+#loginButton, #signupButton{
+	padding:5px;
+	width:139px;
+}
 
 /* HEADER */
 /********************************************/
 header form{
 	display:inline-block;
+	margin:1em;
 }
 
 header{
@@ -27,6 +41,10 @@ header signup-directive, header login-directive{
 	padding: .75em;
 }
 
+header form input{
+	margin-bottom:5px;
+}
+
 
 
 
@@ -39,21 +57,11 @@ header signup-directive, header login-directive{
 	padding-bottom: .5em;
 }
 
-#landingContainer>div, #landingContainer>form{
-	display:inline;
-}
-
-#landingContainer {
-  text-align: center;
-}
-
 #landingContainer>div, #landingContainer>form {
   display: inline;
 }
 
-#landingContainer input{
-	padding:5px;
-}
+
 
 #landingContainer form button{
 	background-color:#fff;
@@ -63,6 +71,31 @@ header signup-directive, header login-directive{
 
 #landingContainer form button img{
 	width:15px;
+}
+
+
+/* LANDING LIST CONTAINER */
+/*******************************************/
+
+.listItem{
+	padding:.25em;
+}
+
+.listItem:first-child{
+	margin-top:1em;
+}
+
+.listItem:last-child{
+	margin-bottom:1em;
+}
+
+.listItem a{
+	color:#000;
+	text-decoration: none;
+}
+
+.listItem a:hover{
+	font-weight:600;
 }
 
 
