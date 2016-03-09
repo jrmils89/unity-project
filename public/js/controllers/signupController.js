@@ -7,6 +7,7 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 	this.user.loggedIn = false;
 
 	var cookies = $cookies.getAll();
+	console.log("cookies: ", cookies)
 
 	if (cookies.userUsername && cookies.userEmail && cookies.userPassword) {
 		self.user = {
@@ -22,6 +23,7 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 		$http.post("/api/v1/users/signup", data).then(
 			function(response){
 				var cookies = $cookies.getAll();
+				console.log(cookies)
 				self.user = {
 					username: cookies.userUsername,
 					email: cookies.userEmail,
