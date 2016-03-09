@@ -1,0 +1,16 @@
+<canvas style="background: white; border: solid 1px black" id="canvas" width="500" height="300" ng-click="drawCtrl.addElToCanvas($event)"></canvas><br/>
+
+
+
+<input type="text" ng-model="drawCtrl.text" placeholder="Write Text">
+<input type="radio" name="group1" value="text" ng-model="drawCtrl.groupOne">Text<br/>
+<input type="radio" name="group1" value="rightArrow" ng-model="drawCtrl.groupOne">Right Arrow<br/>
+<input type="radio" name="group1" value="leftArrow" ng-model="drawCtrl.groupOne">Left Arrow<br/>
+<input type="radio" name="group1" value="upArrow" ng-model="drawCtrl.groupOne">Up Arrow<br/>
+<input type="radio" name="group1" value="downArrow" ng-model="drawCtrl.groupOne">Down Arrow<br/>
+<input type="checkbox" name="group2" value="rectangle" ng-model="drawCtrl.checkRectangle">Rectangle<br/>
+
+<button ng-click="drawCtrl.clear()">Clear</button>
+
+
+<a id="download" download="FlowChart.jpg">Download as image</a>
