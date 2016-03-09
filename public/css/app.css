@@ -51,6 +51,25 @@ header signup-directive, header login-directive{
   display: inline;
 }
 
+#landingContainer input{
+	padding:5px;
+}
+
+#landingContainer form button{
+	background-color:#fff;
+	border:solid 2px black;
+	padding:3px 2px 2px 2px;
+}
+
+#landingContainer form button img{
+	width:15px;
+}
+
+
+/* CONCEPT PARTIAL */
+/*******************************************/
+
+
 section#menuToggle{
 	text-align:center;
 	position: relative
