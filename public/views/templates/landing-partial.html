@@ -14,7 +14,7 @@
 		<br>
 		<form class="add-category" ng-submit="categoryCtrl.addCategory()">
 			<input type="text" name="title" ng-model="categoryCtrl.newCategory.title" placeholder="Add Category">
-			<button><img src="img/plus.svg"></button>
+			<button><img class="add" src="img/plus.svg"></button>
 		</form>
 		<div id="listContainer">
 			<div class="listItem" ng-repeat="category in categoryCtrl.categoryNames | filter: search">
