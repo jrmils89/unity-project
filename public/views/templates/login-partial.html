@@ -1,9 +1,8 @@
-	<p ng-if="loginCtrl.user.username != null">Welcome {{loginCtrl.user.username}}</p>
+	<p ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome {{loginCtrl.user.username}}</p>
 
 	<div id="form-container">
-		<signup-directive></signup-directive>
 		
-		<h3 ng-click="loginCtrl.showForm()">Log In</h3>
+		<h3 ng-click="loginCtrl.showForm($index)" ng-if="loginCtrl.user.username == null">Log In</h3>
 		<form ng-show="loginCtrl.viewForm == true" id="login-form" ng-if="loginCtrl.user.loggedIn == false || loginCtrl.user == null" ng-submit="loginCtrl.login(loginCtrl.user)">
 			<input type="text" ng-model="loginCtrl.user.email" name="email" placeholder="Email Address"><br/>
 			<input type="password" ng-model="loginCtrl.user.password" name="password" placeholder="Password"><br/>

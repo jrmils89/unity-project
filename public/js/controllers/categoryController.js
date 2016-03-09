@@ -1,7 +1,7 @@
 var app = angular.module('categoryContoller', ['ngCookies']);
 
 
-app.controller('categoryContoller', ['$http','$location','$cookies', function($http,$location,$cookies) {
+app.controller('categoryContoller', ['$http','$location','$cookies', '$scope', function($http,$location,$cookies, $scope) {
   var self = this;
 
   // This gets a cookie that was set by the server if the user requested a path other than '/'

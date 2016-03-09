@@ -17,16 +17,15 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
     };
   };
 
-
-
   this.revealLogin = function(){
     self.show = !self.show;
   }
 
-
-  $scope.$on('user-signed-up', function(eventObj, data){
-        self.user = data;
-    });
+  $scope.$on('user-signed-up', function(eventObj, data) {
+    // console.log(data)
+    // console.log($scope)
+    self.user = data;
+  });
 
 
   this.login = function(data) {
@@ -53,6 +52,7 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
         self.user = {};
         self.user.loggedIn = false;
         $scope.$emit('user-logged-out', self.user);
+        self.viewForm = false;
       },
       function(error) {
         console.log(error);
@@ -62,8 +62,10 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
 
   this.viewForm = false
 
-  this.showForm = function(){
+  this.showForm = function(index){
     self.viewForm = !self.viewForm
   }
+
+
 
 }]);

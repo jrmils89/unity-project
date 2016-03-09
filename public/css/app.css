@@ -8,20 +8,39 @@ body{
 	font-family: "Raleway", sans-serif;
 }
 
-#landingContainer{
-	text-align:center;
-}
 
-#landingContainer>div, #landingContainer>form{
-	display:inline;
-}
-
+/* HEADER */
+/********************************************/
 header form{
 	display:inline-block;
 }
 
-body {
-  font-family:'Raleway', sans-serif;
+header{
+	display:block;
+	text-align:center;
+}
+
+header signup-directive, header login-directive{
+	display:inline-block;
+	width:49%;
+	float:left;
+	padding: .75em;
+}
+
+
+
+
+#landingContainer{
+	text-align:center;
+	padding:1em;
+}
+
+#landingContainer h1{
+	padding-bottom: .5em;
+}
+
+#landingContainer>div, #landingContainer>form{
+	display:inline;
 }
 
 #landingContainer {
