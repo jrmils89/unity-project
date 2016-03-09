@@ -103,3 +103,27 @@ section#menuToggle ul{
 	background-color: white;
   border-bottom: solid 1px black;
 }
+
+#canvas-container {
+	text-align: center;
+};
+
+.text-arrows-canvas-option {
+	width: 45%;
+}
+
+.rectangle-canvas-option {
+	float: right;
+	width: 45%;
+}
+
+#canvas-submit-options {
+	text-align: center;
+}
+
+#download {
+	border: solid 1px black;
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
+}
