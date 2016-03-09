@@ -2,6 +2,7 @@
   <h1>Create Your Flow Chart</h1>
   <canvas style="background: white; border: solid 1px black" id="canvas" width="500" height="300" ng-click="drawCtrl.addElToCanvas($event)"></canvas><br/>
   <button ng-click="drawCtrl.undoCanvas()">Undo</button>
+  <button ng-click="drawCtrl.redoCanvas()">Redo</button>
   <div class="flow-image-directions">
     <h3>Instructions</h3>
     <p>You can add text, arrows, and rectangles to the canvas image</p>

@@ -7,6 +7,7 @@ app.controller("drawController", [function(){
 	this.groupOne = null;
 
 	this.drawing = [];
+	this.redoDrawing = [];
 
 	this.canvas = document.getElementById('canvas');
 	this.ctx = document.getElementById('canvas').getContext('2d');
@@ -115,15 +116,30 @@ app.controller("drawController", [function(){
 	};
 
 	this.undoCanvas = function() {
-		self.drawing.pop();
+		var poppedEl = self.drawing.pop();
+		if (poppedEl) {self.redoDrawing.unshift(poppedEl)};
 		self.clear();
 		for (var i = 0; i < self.drawing.length; i++) {
-			var myE = self.drawing[i].event;
-			for (var j = 0; j < self.drawing[i].events.length; j++) {
-				var fun = self.drawing[i].events[j];
-				fun(myE);
+			if (self.drawing[i]) {
+				var myE = self.drawing[i].event;
+				for (var j = 0; j < self.drawing[i].events.length; j++) {
+					var fun = self.drawing[i].events[j];
+					fun(myE);
+				};
 			};
 		};
+	};
+
+	this.redoCanvas = function() {
+		var shiftedEl = self.redoDrawing.shift();
+		if (shiftedEl) {
+			self.drawing.push(shiftedEl);
+			var myE = shiftedEl.event;
+			for (var j = 0; j < shiftedEl.events.length; j++) {
+				var fun = shiftedEl.events[j];
+				fun(myE);
+			};
+		}
 	};
 
 	document.getElementById('download').addEventListener('click', this.download, false);
