@@ -12,9 +12,6 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
         when('/categories/:name', {
             templateUrl: 'views/pages/concepts-page.html',
         }).
-        when('/draw', {
-            templateUrl: 'views/pages/draw.html'
-        }).
         when('/users', {
             templateUrl: 'views/pages/users.html',
         }).

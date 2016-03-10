@@ -1,7 +1,11 @@
 <h1 style="color:red">Add Concept</h1>
 
-<form ng-submit="addConceptCtrl.addConcept()">
+<form id="addConceptForm">
 	<input type="text" ng-model="addConceptCtrl.newConcept.title" placeholder="Concept Title">
 	<input type="number" ng-model="addConceptCtrl.newConcept.stars" placeholder="Stars">
-	<button>Add Concept</button>
+	<input id="addConceptImage" type="file" name="image"  /><br/>
+	<button ng-click="addConceptCtrl.addConcept(addConceptCtrl.newConcept)">Add Concept</button>
+	<p ng-if="addConceptCtrl.user.loggedIn == false">Sign Up Or Log In To Create Your Own Flow Charts!</p>
+	<button ng-if="addConceptCtrl.user.loggedIn == true" ng-click="addConceptCtrl.showDraw()">Make Your Own Flow Chart!</button>
 </form>
+<draw-directive ng-if="addConceptCtrl.drawDivShow == true && addConceptCtrl.user.loggedIn == true"></draw-directive>
