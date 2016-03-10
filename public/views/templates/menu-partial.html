@@ -6,7 +6,7 @@
 	<div id="dropdownMenu" ng-show="categoryCtrl.show">
 		<div class="list-item" ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search"><a class="menucategories" href="/categories/{{categoryName.title}}">{{categoryName.title}}</a>
 		<div ng-if="categoryCtrl.user.isAdmin === 'true'">
-				<button ng-click="categoryCtrl.deleteCategory($index, categoryName)">Delete</button>
+				<button ng-click="categoryCtrl.deleteCategory(categoryName)">Delete</button>
 		</div>
 		</div>
 		<div class="search-box">
