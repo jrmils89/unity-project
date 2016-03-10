@@ -57,6 +57,12 @@ form button img{
 /* LANDING LIST CONTAINER */
 /*******************************************/
 
+span{
+	text-transform:capitalize;
+	margin-top:1em;
+}
+
+
 .listItem{
 	padding:.25em;
 }
@@ -106,7 +112,7 @@ nav#menuToggle img{
 }
 
 
-#loginButton, #signupButton{
+#loginButton, #signupButton, #logoutButton{
 	padding:5px;
 	width:139px;
 }
@@ -133,7 +139,7 @@ signup-directive, login-directive{
 }
 
 #menuCategoryContainer{
-	height:100px;
+	max-height:100px;
 	overflow:auto;
 }
 
@@ -150,6 +156,16 @@ signup-directive, login-directive{
 	padding:.75em;
 }
 
+#menuToggle a#allUsers{
+	color:#000;
+	font-weight:700;
+	text-decoration:none;
+}
+
+#menuToggle a#allUsers:hover{
+	font-weight:800;
+}
+
 /* CONCEPT DIRECTIVE */
 
 concept-directive{
@@ -164,12 +180,26 @@ concept-directive h1{
  	padding:.75em;
 }
 
+.concept h1{
+	margin-bottom:1em;
+}
+
 .conceptItem, #addConcept{
 	margin:1em 0px;
 }
 
-#addConcept{
+/*#addConcept, .concept h3{
 	text-align:center;
+}*/
+
+.concept h3 a{
+	color:#000;
+	text-decoration:none;
+	font-weight:700;
+}
+
+.concept h3 a:hover{
+	font-weight:800;
 }
 
 .conceptItem h2{
@@ -246,4 +276,43 @@ img.conceptImg{
 	color: black;
 	text-decoration: none;
 }
+
+
+/*****************************************************************/
+/* MEDIA QUERY */
+/*****************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -4,7 +4,9 @@
 		<h2><a href="/">Flowly</a></h2>
 	</div>
 
-	<p ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome {{loginCtrl.user.username}}</p>
+	<h1 ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome <span>{{loginCtrl.user.username}}</span></h1>
+
+	<a id="allUsers" ng-if="loginCtrl.user.isAdmin === 'true'" href="/users">All Users</a>
 	
 
 	<div id="dropdownMenu" ng-show="categoryCtrl.show">
