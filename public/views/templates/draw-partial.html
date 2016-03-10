@@ -1,0 +1,35 @@
+<div id="canvas-container">
+  <h1>Create Your Flow Chart</h1>
+  <canvas style="background: white; border: solid 1px black" id="canvas" width="500" height="300" ng-click="drawCtrl.addElToCanvas($event)"></canvas><br/>
+  <div class="flow-image-directions">
+    <h3>Instructions</h3>
+    <p>You can add text, arrows, and rectangles to the canvas image</p>
+    <h4>To Add Text</h4>
+    <p>Write your text, check text, and click on the image where you wish to add the text</p>
+    <h4>To Add An Arrow</h4>
+    <p>Choose which direction you wish your arrow to point, then click on the image where you wish to add the text</p>
+    <h4>To Add An Rectangle</h4>
+    <p>Select the rectangle option then click on the image where you wish to add the shape</p>
+    <p>You are also able to add a rectangle with text inside by entering your text and having both rectange and text selected before clikcing on the image</p>
+  </div>
+</div>
+<div id="canvas-options-container">
+  <div class="rectangle-canvas-option">
+    <h2>Choose A Rectangle</h2>
+    <input type="checkbox" name="group2" value="rectangle" ng-model="drawCtrl.checkRectangle">Rectangle<br/>
+  </div>
+  <div class="text-arrows-canvas-option">
+    <h2>Choose Text Or An Arrow</h2>
+    <input type="text" ng-model="drawCtrl.text" placeholder="Write Text">
+    <input type="radio" name="group1" value="text" ng-model="drawCtrl.groupOne">Text<br/>
+    <input type="radio" name="group1" value="rightArrow" ng-model="drawCtrl.groupOne">Right Arrow<br/>
+    <input type="radio" name="group1" value="leftArrow" ng-model="drawCtrl.groupOne">Left Arrow<br/>
+    <input type="radio" name="group1" value="upArrow" ng-model="drawCtrl.groupOne">Up Arrow<br/>
+    <input type="radio" name="group1" value="downArrow" ng-model="drawCtrl.groupOne">Down Arrow<br/>
+  </div>
+</div>
+<div id="canvas-submit-options">
+  <h2>Download / Clear</h2>
+  <button ng-click="drawCtrl.clear()">Clear Image</button>
+  <a id="download" download="FlowChart.jpg">Download Image</a>
+</div>

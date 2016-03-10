@@ -27,7 +27,8 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
     self.user = data;
   });
 
-  $scope.$on('user-signed-up', function(eventObj, data) {
+  $scope.$on('user-signed-in', function(eventObj, data) {
+    console.log(data)
     self.user = data;
   });
 

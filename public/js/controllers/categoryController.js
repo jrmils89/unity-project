@@ -60,8 +60,8 @@ app.controller('categoryContoller', ['$http','$location','$cookies', '$scope', f
 
 
 
-this.deleteCategory = function(index, categoryNames){
-      console.log(categoryNames);
+this.deleteCategory = function(index, category){
+      console.log(category);
 
   // self.categoryNames[0].splice(index, 1);
   // if(self.categoryNames != null){
