@@ -23,6 +23,10 @@ router.post("/:name", function(req, res){
    })
 });
 
+router.get('/ospry', function(req, res) {
+  res.json({key: process.env.OSPRY_KEY});
+})
+
 router.get('/seed', function(req, res) {
   var cats = [
     {

@@ -8,7 +8,6 @@ var session = require('express-session');
 var db = mongoose.connection;
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/flow-ly';
 
-
 mongoose.connect(mongoUri);
 
 app.use(express.static('public'));

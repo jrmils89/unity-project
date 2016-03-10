@@ -34,7 +34,6 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 				// We are getting this cookie information to set the user object that is passed between
 				// our controllers to determine when the user is logged in
 				var cookies = $cookies.getAll();
-				console.log(cookies)
 				self.user = {
 					username: cookies.userUsername,
 					email: cookies.userEmail,

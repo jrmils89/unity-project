@@ -1,10 +1,19 @@
 var app = angular.module("conceptController", ['ngCookies']);
-var ospry = new Ospry('sk-test-az04lqf40ktzhht4iwe311f8');
 
 app.controller("conceptController", ["$http", "$routeParams", "$cookies", "$scope", function($http, $routeParams, $cookies, $scope) {
   var self = this;
-
   this.name = $routeParams.name;
+
+  var ospry = null;
+  $http.get('/api/v1/categories/ospry').then(
+    function(response) {
+      var ospryKey = response.data.key.toString();
+      ospry = new Ospry(ospryKey);
+    },
+    function(error) {
+      console.log(error)
+    }
+  );
 
   this.user = {};
   this.user.loggedIn = false;
@@ -75,7 +84,17 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", "$scop
     )
   }
 
-
+  this.addStars = function(data) {
+    data.stars += 1;
+    $http.put('/api/v1/categories/' + self.name, data).then(
+      function(response) {
+        return true;
+      },
+      function(error) {
+        console.log(error);
+      }
+    );
+  };
 
   this.saveData = function(data, index) {
     if (document.getElementById("formFile" + index).value != "") {
