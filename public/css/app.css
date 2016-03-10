@@ -90,6 +90,15 @@ span{
 
 
 /* MENU / NAV */
+
+section#dropdownMenu{
+	display:none;
+}
+
+section#dropdownMenu.active{
+	display:block;
+}
+
 nav h2 a{
 	color:#000;
 	text-decoration: none;
@@ -112,7 +121,7 @@ nav#menuToggle img{
 }
 
 
-#loginButton, #signupButton, #logoutButton{
+#loginButton, #signupButton{
 	padding:5px;
 	width:139px;
 }
@@ -282,6 +291,75 @@ img.conceptImg{
 /* MEDIA QUERY */
 /*****************************************************************/
 
+
+@media (min-width:768px){
+
+
+
+/******** NAV / MENU ********/
+
+	nav{
+		padding:.75em;
+	}
+
+	nav#menuToggle img{
+		display:none;
+	}
+
+	nav#menuToggle{
+		text-align:left;
+		width:800px;
+		max-width:100%;
+	}
+
+	#toggleMenuContainer{
+		width:50%;
+		display:inline;
+		border-bottom:0px;
+		float:left;
+		padding:0;
+	}
+
+	section#dropdownMenu{
+		display:block;
+		position:inherit;
+		float:left;
+		width:50%;
+	}
+
+	#dropdownMenuContainer{
+		display:none;
+	}
+
+	signup-directive, login-directive, logout-directive, #dropdownMenu h3{
+		width:50%;
+		display:inline;
+		padding:5px 0px .75em 0px;
+		text-align:center;
+	}
+
+	#dropdownMenu{
+		border-bottom:0px;
+	}
+
+	nav form{
+		padding:.75em 0px;
+		position:absolute;
+		text-align:center;
+		width:50%;
+	}
+
+	.concept{
+		width:800px;
+		max-width:100%;
+	}
+
+	#logoutButton{
+		float:right;
+		margin-right:1em;
+	}
+
+}
 
 
 

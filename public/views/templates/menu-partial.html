@@ -1,15 +1,15 @@
 <nav id="menuToggle">
 	<div id="toggleMenuContainer" >
-		<img class="menuimg" ng-click="categoryCtrl.revealCategories()" src="img/menuToggle.svg" >
+		<img class="menuImg" ng-click="categoryCtrl.revealCategories()" src="img/menuToggle.svg" >
 		<h2><a href="/">Flowly</a></h2>
 	</div>
 
-	<h1 ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome <span>{{loginCtrl.user.username}}</span></h1>
 
-	<a id="allUsers" ng-if="loginCtrl.user.isAdmin === 'true'" href="/users">All Users</a>
 	
-
-	<div id="dropdownMenu" ng-show="categoryCtrl.show">
+<!-- ng-show="categoryCtrl.show"  -->
+	<section id="dropdownMenu" ng-class="(categoryCtrl.show)?'active':''">
+	<h3 ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome <span>{{loginCtrl.user.username}}</span></h3>
+		<a id="allUsers" ng-if="loginCtrl.user.isAdmin === 'true'" href="/users">All Users</a>
 			<signup-directive></signup-directive>
 			<login-directive></login-directive>
 			<logout-directive></logout-directive>
@@ -25,6 +25,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 </nav>
