@@ -6,6 +6,9 @@ app.controller("drawController", [function(){
 	this.text = null;
 	this.groupOne = null;
 
+	this.drawing = [];
+	this.redoDrawing = [];
+
 	this.canvas = document.getElementById('canvas');
 	this.ctx = document.getElementById('canvas').getContext('2d');
 
@@ -17,18 +20,26 @@ app.controller("drawController", [function(){
 		if (self.groupOne == 'text' && self.checkRectangle) {
 			self.addText(e);
 			self.rectangle(e);
+			var eventsArray = [self.addText, self.rectangle];
+			self.drawing.push({event: e, events: eventsArray});
 		}  else if (self.checkRectangle) {
 			self.rectangle(e);
+			self.drawing.push({event: e, events: [self.rectangle]});
 		} else if (self.groupOne =='text') {
 			self.addText(e);
+			self.drawing.push({event: e, events: [self.addText]});
 		} else if (self.groupOne =='rightArrow') {
 			self.rightArrow(e);
+			self.drawing.push({event: e, events: [self.rightArrow]});
 		} else if (self.groupOne =='leftArrow') {
 			self.leftArrow(e);
+			self.drawing.push({event: e, events: [self.leftArrow]});
 		} else if (self.groupOne =='upArrow') {
 			self.upArrow(e);
+			self.drawing.push({event: e, events: [self.upArrow]});
 		} else if (self.groupOne =='downArrow') {
 			self.downArrow(e);
+			self.drawing.push({event: e, events: [self.downArrow]});
 		}
 	};
 
@@ -98,6 +109,33 @@ app.controller("drawController", [function(){
 	this.download = function() {
 		var dt = canvas.toDataURL();
 		this.href = dt;
+	};
+	
+	this.undoCanvas = function() {
+		var poppedEl = self.drawing.pop();
+		if (poppedEl) {self.redoDrawing.unshift(poppedEl)};
+		self.clear();
+		for (var i = 0; i < self.drawing.length; i++) {
+			if (self.drawing[i]) {
+				var myE = self.drawing[i].event;
+				for (var j = 0; j < self.drawing[i].events.length; j++) {
+					var fun = self.drawing[i].events[j];
+					fun(myE);
+				};
+			};
+		};
+	};
+
+	this.redoCanvas = function() {
+		var shiftedEl = self.redoDrawing.shift();
+		if (shiftedEl) {
+			self.drawing.push(shiftedEl);
+			var myE = shiftedEl.event;
+			for (var j = 0; j < shiftedEl.events.length; j++) {
+				var fun = shiftedEl.events[j];
+				fun(myE);
+			};
+		}
 	};
 
 	document.getElementById('download').addEventListener('click', this.download, false);

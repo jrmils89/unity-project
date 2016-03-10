@@ -1,7 +1,7 @@
 var app = angular.module("conceptController", ['ngCookies']);
 var ospry = new Ospry('sk-test-az04lqf40ktzhht4iwe311f8');
 
-app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scope', function($http, $routeParams, $cookies, $scope) {
+app.controller("conceptController", ["$http", "$routeParams", "$cookies", "$scope", function($http, $routeParams, $cookies, $scope) {
   var self = this;
 
   this.name = $routeParams.name;
@@ -19,6 +19,8 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
     };
   };
 
+
+
   $scope.$on('user-logged-in', function(eventObj, data) {
     self.user = data;
   });
@@ -27,13 +29,14 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
     self.user = data;
   });
 
-  $scope.$on('user-signed-in', function(eventObj, data) {
+
+  $scope.$on('user-signed-up', function(eventObj, data) {
     self.user = data;
   });
 
   $scope.$on('new-concept-data-added', function(eventObj, data) {
     self.getConceptData();
-  })
+  });
 
   this.concept = [];
 

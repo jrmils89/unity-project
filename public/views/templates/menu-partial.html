@@ -16,6 +16,9 @@
 		<br clear="all">
 
 		<div id="dropdownMenuContainer">
+			<div ng-if="categoryCtrl.user.isAdmin === 'true'">
+				<button ng-click="categoryCtrl.deleteCategory(categoryName)">Delete</button>
+			</div>
 			<div class="search-box">
 				<input class="category-search" type="text" ng-model="search" placeholder="Search" />
 			</div>
