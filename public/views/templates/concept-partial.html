@@ -5,12 +5,12 @@
 	<h1>{{conceptCtrl.name}}</h1>
 
 	<h3><a href="/draw">Create Your Own Flow Diagram</a></h3>
-	
+
 	<div id="addConcept">
 		<add-concept></add-concept>
 	</div>
 
-	<div ng-if="conceptCtrl.user.isAdmin === false || conceptCtrl.user.loggedIn === false" class="conceptItem">
+	<div ng-if="conceptCtrl.user.isAdmin === 'false' || conceptCtrl.user.loggedIn === false" class="conceptItem">
 		<div ng-repeat="concept in conceptCtrl.concept">
 			<div ng-repeat="title in concept.concept | filter:title.approved=true">
 				<h2>{{title.title}}</h2>
@@ -20,13 +20,13 @@
 		</div>
 	</div>
 
-	<div ng-if="conceptCtrl.user.isAdmin" class="conceptItem">
+	<div ng-if="conceptCtrl.user.isAdmin === 'true'" class="conceptItem">
 		<div ng-repeat="concept in conceptCtrl.concept">
 			<div ng-repeat="title in concept.concept" class="singleConcept">
 				<h2>{{title.title}}</h2>
 				<p>Stars: {{title.stars}}</p><br>
 				<button id="editConceptButton" ng-click="conceptCtrl.revealConcepts($index)">Edit</button>
-				
+
 				<button id="deleteConceptButton" ng-click="conceptCtrl.deleteConcept($index, title)">Delete</button>
 				<br>
 				<div id="edit" ng-show="conceptCtrl.editConcept === $index">
@@ -44,7 +44,7 @@
 				</div> <!-- #edit -->
 
 				<img class="conceptImg"ng-if="title.img != '' && title.img != null" ng-src="{{title.img}}" alt="Concept Image">
-				
+
 			</div>
 		</div>
 	</div>
