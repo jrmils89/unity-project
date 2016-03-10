@@ -11,14 +11,12 @@ app.controller("drawController", [function(){
 	// a user groups text with shapes (referencing ng-model in the draw.html input fields)
 	this.groupOne = null;
 
-<<<<<<< HEAD
-	// retrieving the element <canvas> by it's id, 'canvas' in order to
-	// manipulate the DOM within the draw.html partial
-=======
 	this.drawing = [];
 	this.redoDrawing = [];
 
->>>>>>> 47865544df9a5a79d6e34378367a8d15e81f94ac
+
+	// retrieving the element <canvas> by it's id, 'canvas' in order to
+	// manipulate the DOM within the draw.html partial
 	this.canvas = document.getElementById('canvas');
 	// storing the '2d' data inside the ctx variable we created
 	this.ctx = document.getElementById('canvas').getContext('2d');
@@ -36,12 +34,12 @@ app.controller("drawController", [function(){
 		if (self.groupOne == 'text' && self.checkRectangle) {
 			self.addText(e);
 			self.rectangle(e);
-<<<<<<< HEAD
-		// same logic applies for if the user only wants the shape without text
-=======
+			// same logic applies for if the user only wants the shape without text
 			var eventsArray = [self.addText, self.rectangle];
+			// when drawing is created, apply the 'event' attribute to their
+			// drawing, which contains the steps the user took when creating it.
+			// And this attribute will be accessed when a user wants to redo/undo it
 			self.drawing.push({event: e, events: eventsArray});
->>>>>>> 47865544df9a5a79d6e34378367a8d15e81f94ac
 		}  else if (self.checkRectangle) {
 			// just return the rectangle
 			self.rectangle(e);
@@ -144,10 +142,13 @@ app.controller("drawController", [function(){
 		var dt = canvas.toDataURL();
 		this.href = dt;
 	};
-	
+		
+	// if user clicks on the button that triggers this click function
 	this.undoCanvas = function() {
+		// the drawing will be deleted from the user's canvas         
 		var poppedEl = self.drawing.pop();
 		if (poppedEl) {self.redoDrawing.unshift(poppedEl)};
+		// clear function will be called
 		self.clear();
 		for (var i = 0; i < self.drawing.length; i++) {
 			if (self.drawing[i]) {
@@ -160,11 +161,18 @@ app.controller("drawController", [function(){
 		};
 	};
 
+
+	// if user clicks on the button that triggers this click function
 	this.redoCanvas = function() {
+		// user's canvas will return the drawing that the user 
+		// wants to go back and redo
 		var shiftedEl = self.redoDrawing.shift();
 		if (shiftedEl) {
+			// if the user activates this function, the new drawing
+			// will be pushed back into the array of the user's drawings 
 			self.drawing.push(shiftedEl);
 			var myE = shiftedEl.event;
+			
 			for (var j = 0; j < shiftedEl.events.length; j++) {
 				var fun = shiftedEl.events[j];
 				fun(myE);
@@ -176,4 +184,4 @@ app.controller("drawController", [function(){
 	// which will listen for when the user clicks 'download'
 	document.getElementById('download').addEventListener('click', this.download, false);
 
-}])
+}]);
