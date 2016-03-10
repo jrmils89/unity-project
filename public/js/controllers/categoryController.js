@@ -1,7 +1,7 @@
 var app = angular.module('categoryContoller', ['ngCookies']);
 
 
-app.controller('categoryContoller', ['$http','$location','$cookies', '$scope', function($http,$location,$cookies, $scope) {
+app.controller('categoryContoller', ['$http','$location','$cookies', function($http,$location,$cookies) {
   var self = this;
 
   // This gets a cookie that was set by the server if the user requested a path other than '/'
@@ -19,7 +19,7 @@ app.controller('categoryContoller', ['$http','$location','$cookies', '$scope', f
 
   this.show = false;
 
-  this.
+  // this.
 
   this.revealCategories = function(){
     self.show = !self.show
@@ -60,20 +60,21 @@ app.controller('categoryContoller', ['$http','$location','$cookies', '$scope', f
 
 
 
-this.deleteCategory = function(index, category){
-      console.log(category);
+this.deleteCategory = function(index, title){
 
-  // self.categoryNames[0].splice(index, 1);
-  // if(self.categoryNames != null){
-  
-// $scope.self.categoryNames.splice($scope.flumps.indexOf($scope.flump), 1);
-  $http.delete('/api/v1/categories/' + self.categoryNames._id).then(
+  console.log(self.categoryNames[index]);
+
+  $http.delete('/api/v1/categories/' + title.title).then(
+  // $scope.categoryNames.splice(index, 1);
 
 
-    // console.log(data);
+    // console.log(self.categoryNames[title]);
 
     function(response){
+      // self.categoryNames = response
       console.log(response);
+            // return true;
+
     }
     )
 

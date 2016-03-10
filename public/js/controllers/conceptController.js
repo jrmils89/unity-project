@@ -27,8 +27,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
     self.user = data;
   });
 
-  $scope.$on('user-signed-in', function(eventObj, data) {
-    console.log(data)
+  $scope.$on('user-signed-up', function(eventObj, data) {
     self.user = data;
   });
 
@@ -62,7 +61,6 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", '$scop
 
 
   this.deleteConcept = function(index, concept){
-  	console.log(concept);
     self.concept[0].concept.splice(index, 1);
     $http.delete("/api/v1/categories/" + self.name + "/concepts/" + concept._id).then(
       function(response){
