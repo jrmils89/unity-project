@@ -22,7 +22,7 @@ FlowLy is a MEAN Stack Application
 
 
 ## Contributors
-The site was developed by Levi Tardio, Masha Vainiblat, and Jesse Mills. #unity
+The site was developed by Levi Tardio, Masha Vainblat, and Jesse Mills. #unity
 
 
 
