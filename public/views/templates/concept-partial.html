@@ -1,38 +1,48 @@
+<br clear="all">
+
+<hr>
 <section class="concept">
 	<h1>{{conceptCtrl.name}}</h1>
+
 	<div id="addConcept">
 		<add-concept></add-concept>
 	</div>
 
-	<div ng-if="conceptCtrl.user.isAdmin === false || conceptCtrl.user.loggedIn === false">
+	<div ng-if="conceptCtrl.user.isAdmin === 'false' || conceptCtrl.user.loggedIn === false" class="conceptItem">
 		<div ng-repeat="concept in conceptCtrl.concept">
-			<div ng-repeat="title in concept.concept | filter:title.approved=true">
-			<img ng-if="title.img != ''" ng-src="{{title.img}}" alt="Concept Image">
-			<h2>Title: {{title.title}}</h2>
-			<p>Stars: {{title.stars}}</p>
+			<div ng-repeat="title in concept.concept | filter:title.approved=true | orderBy:'-stars'">
+				<h2>{{title.title}}</h2>
+				<i class="stars" ng-model="title.stars" ng-click="conceptCtrl.addStars(title)">&#xE800;</i>{{title.stars}}<br>
+				<img class="conceptImg" ng-if="title.img != ''" ng-src="{{title.img}}" alt="Concept Image">
 			</div>
 		</div>
 	</div>
 
-	<div ng-if="conceptCtrl.user.isAdmin">
+	<div ng-if="conceptCtrl.user.isAdmin === 'true'" class="conceptItem">
 		<div ng-repeat="concept in conceptCtrl.concept">
-			<div ng-repeat="title in concept.concept" >
-				<img ng-if="title.img != '' && title.img != null" ng-src="{{title.img}}" alt="Concept Image">
-				<h2>Title: {{title.title}}</h2>
+			<div ng-repeat="title in concept.concept" class="singleConcept">
+				<h2>{{title.title}}</h2>
+				<i class="stars" ng-model="title.stars" ng-click="conceptCtrl.addStars(title)">&#xE800;</i>{{title.stars}}<br>
 				<button id="editConceptButton" ng-click="conceptCtrl.revealConcepts($index)">Edit</button>
-				
-				<button ng-click="conceptCtrl.deleteConcept($index, title)">Delete</button>
-				
-				<p>Stars: {{title.stars}}</p>
+
+				<button id="deleteConceptButton" ng-click="conceptCtrl.deleteConcept($index, title)">Delete</button>
+				<br>
 				<div id="edit" ng-show="conceptCtrl.editConcept === $index">
-					<form id="conceptForm{{$index}}" ng-submit="conceptCtrl.saveData(title, $index)">
-						<input type="text" name="title" ng-model="title.title" value="{{title.title}}" /><br/>
-						<input type="number" name="stars" value="{{title.stars}}" /><br/>
-						<input id="formFile{{$index}}" type="file" name="image"  /><br/>
-						<input type="checkbox" ng-model="title.approved">
-						<button ng-click="conceptCtrl.revealConcepts($index)">Update!</button>
+					<form id="conceptForm{{$index}}" ng-submit="conceptCtrl.saveData(title, $index)" class="conceptForm">
+						<div class="titleStarsInputs">
+							<input id="titleInput" type="text" name="title" ng-model="title.title" value="{{title.title}}" /><br>
+							<input id="starsInput" type="number" name="stars" ng-model="title.stars" value="{{title.stars}}" />
+						</div>
+						<div class="imageApproveUpdate">
+							<input id="formFile{{$index}}" type="file" name="image"  />
+							<input id="approveCheckbox" type="checkbox" ng-model="title.approved">
+							<button id="updateConceptButton" ng-click="conceptCtrl.revealConcepts($index)">Update</button>
+						</div>
 					</form>
-				</div>
+				</div> <!-- #edit -->
+
+				<img class="conceptImg"ng-if="title.img != '' && title.img != null" ng-src="{{title.img}}" alt="Concept Image">
+
 			</div>
 		</div>
 	</div>

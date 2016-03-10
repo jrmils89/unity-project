@@ -11,8 +11,14 @@ app.controller("drawController", [function(){
 	// a user groups text with shapes (referencing ng-model in the draw.html input fields)
 	this.groupOne = null;
 
+<<<<<<< HEAD
 	// retrieving the element <canvas> by it's id, 'canvas' in order to
 	// manipulate the DOM within the draw.html partial
+=======
+	this.drawing = [];
+	this.redoDrawing = [];
+
+>>>>>>> 47865544df9a5a79d6e34378367a8d15e81f94ac
 	this.canvas = document.getElementById('canvas');
 	// storing the '2d' data inside the ctx variable we created
 	this.ctx = document.getElementById('canvas').getContext('2d');
@@ -30,20 +36,31 @@ app.controller("drawController", [function(){
 		if (self.groupOne == 'text' && self.checkRectangle) {
 			self.addText(e);
 			self.rectangle(e);
+<<<<<<< HEAD
 		// same logic applies for if the user only wants the shape without text
+=======
+			var eventsArray = [self.addText, self.rectangle];
+			self.drawing.push({event: e, events: eventsArray});
+>>>>>>> 47865544df9a5a79d6e34378367a8d15e81f94ac
 		}  else if (self.checkRectangle) {
 			// just return the rectangle
 			self.rectangle(e);
+			self.drawing.push({event: e, events: [self.rectangle]});
 		} else if (self.groupOne =='text') {
 			self.addText(e);
+			self.drawing.push({event: e, events: [self.addText]});
 		} else if (self.groupOne =='rightArrow') {
 			self.rightArrow(e);
+			self.drawing.push({event: e, events: [self.rightArrow]});
 		} else if (self.groupOne =='leftArrow') {
 			self.leftArrow(e);
+			self.drawing.push({event: e, events: [self.leftArrow]});
 		} else if (self.groupOne =='upArrow') {
 			self.upArrow(e);
+			self.drawing.push({event: e, events: [self.upArrow]});
 		} else if (self.groupOne =='downArrow') {
 			self.downArrow(e);
+			self.drawing.push({event: e, events: [self.downArrow]});
 		}
 	};
 
@@ -126,6 +143,33 @@ app.controller("drawController", [function(){
 		// a URL
 		var dt = canvas.toDataURL();
 		this.href = dt;
+	};
+	
+	this.undoCanvas = function() {
+		var poppedEl = self.drawing.pop();
+		if (poppedEl) {self.redoDrawing.unshift(poppedEl)};
+		self.clear();
+		for (var i = 0; i < self.drawing.length; i++) {
+			if (self.drawing[i]) {
+				var myE = self.drawing[i].event;
+				for (var j = 0; j < self.drawing[i].events.length; j++) {
+					var fun = self.drawing[i].events[j];
+					fun(myE);
+				};
+			};
+		};
+	};
+
+	this.redoCanvas = function() {
+		var shiftedEl = self.redoDrawing.shift();
+		if (shiftedEl) {
+			self.drawing.push(shiftedEl);
+			var myE = shiftedEl.event;
+			for (var j = 0; j < shiftedEl.events.length; j++) {
+				var fun = shiftedEl.events[j];
+				fun(myE);
+			};
+		}
 	};
 
 	// creating a click function and attaching it to the download button

@@ -29,6 +29,7 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", "$scop
     self.user = data;
   });
 
+
   $scope.$on('user-signed-up', function(eventObj, data) {
     self.user = data;
   });
@@ -74,7 +75,17 @@ app.controller("conceptController", ["$http", "$routeParams", "$cookies", "$scop
     )
   }
 
-
+  this.addStars = function(data) {
+    data.stars += 1;
+    $http.put('/api/v1/categories/' + self.name, data).then(
+      function(response) {
+        return true;
+      },
+      function(error) {
+        console.log(error);
+      }
+    );
+  };
 
   this.saveData = function(data, index) {
     if (document.getElementById("formFile" + index).value != "") {

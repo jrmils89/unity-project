@@ -174,12 +174,9 @@ router.put('/:name', function(req, res){
 
 //DELETE CATEGORIES
 router.delete('/:name', function(req, res){
-
   Category.remove({title:req.params.name}, function(err, data){
-      
     res.json(data);
   });
-
 });
 
 

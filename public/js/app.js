@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'login-directive', 'signup-directive','user-directive','draw-directive','ngCookies']);
+  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'login-directive', 'signup-directive', 'logout-directive', 'user-directive','draw-directive','ngCookies']);
 
 
 
@@ -11,9 +11,6 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
         }).
         when('/categories/:name', {
             templateUrl: 'views/pages/concepts-page.html',
-        }).
-        when('/draw', {
-            templateUrl: 'views/pages/draw.html',
         }).
         when('/users', {
             templateUrl: 'views/pages/users.html',

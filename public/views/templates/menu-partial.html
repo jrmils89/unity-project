@@ -1,19 +1,33 @@
-<section id="menuToggle">
-	<div id="toggleCategoryContainer" >
-		<img class="menuimg" ng-click="categoryCtrl.revealCategories()" src="img/menuToggle.svg" >
-		<h3><a href="/">Categories</a></h3>
+<nav id="menuToggle">
+	<div id="toggleMenuContainer" >
+		<img class="menuImg" ng-click="categoryCtrl.revealCategories()" src="img/menuToggle.svg" >
+		<h2><a href="/">Flowly</a></h2>
 	</div>
-	<div id="dropdownMenu" ng-show="categoryCtrl.show">
-		<div class="list-item" ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search"><a class="menucategories" href="/categories/{{categoryName.title}}">{{categoryName.title}}</a>
-		<div ng-if="categoryCtrl.user.isAdmin === 'true'">
-				<button ng-click="categoryCtrl.deleteCategory($index, categoryName)">Delete</button>
-		</div>
-		</div>
-		<div class="search-box">
-		<input class="category-search" type="text" ng-model="search" placeholder="Search" />
-		</div>
 
-	</div>
-	<login-directive></login-directive>
 
-</section>
+	
+<!-- ng-show="categoryCtrl.show"  -->
+	<section id="dropdownMenu" ng-class="(categoryCtrl.show)?'active':''">
+	<h3 ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome <span>{{loginCtrl.user.username}}</span></h3>
+		<a id="allUsers" ng-if="loginCtrl.user.isAdmin === 'true'" href="/users">All Users</a>
+			<signup-directive></signup-directive>
+			<login-directive></login-directive>
+			<logout-directive></logout-directive>
+		<br clear="all">
+
+		<div id="dropdownMenuContainer">
+			<div ng-if="categoryCtrl.user.isAdmin === 'true'">
+				<button ng-click="categoryCtrl.deleteCategory(categoryName)">Delete</button>
+			</div>
+			<div class="search-box">
+				<input class="category-search" type="text" ng-model="search" placeholder="Search" />
+			</div>
+			<div id="menuCategoryContainer">
+				<div class="list-item" ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search">
+					<a class="menucategories" href="/categories/{{categoryName.title}}">{{categoryName.title}}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</nav>
