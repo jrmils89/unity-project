@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'login-directive', 'signup-directive','user-directive','draw-directive','ngCookies']);
+  var app = angular.module('FlowLy', ['ngRoute','menu-directive','landing-Directive', 'concept-directive', 'login-directive', 'signup-directive', 'logout-directive', 'user-directive','draw-directive','ngCookies']);
 
 
 

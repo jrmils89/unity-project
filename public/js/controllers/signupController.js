@@ -7,7 +7,6 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 	this.user.loggedIn = false;
 
 	var cookies = $cookies.getAll();
-	console.log("cookies: ", cookies)
 
 	if (cookies.userUsername && cookies.userEmail && cookies.userPassword) {
 		self.user = {
@@ -31,6 +30,7 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 				};
 				if (cookies.userUsername != null) {self.user.loggedIn = true};
 				$scope.$emit("user-signed-up", self.user);
+				this.viewForm = false;
 			},
 			function(error){
 				console.log(error)
