@@ -62,22 +62,14 @@ app.controller('categoryContoller', ['$http','$location','$cookies', function($h
 
 this.deleteCategory = function(index, title){
 
-  console.log(self.categoryNames[index]);
-
   $http.delete('/api/v1/categories/' + title.title).then(
-  // $scope.categoryNames.splice(index, 1);
-
-
-    // console.log(self.categoryNames[title]);
-
     function(response){
-      // self.categoryNames = response
-      console.log(response);
-            // return true;
-
+      self.loadData();
+    },
+    function(error) {
+      console.log(error);
     }
-    )
-
+  )
 }
 
 
