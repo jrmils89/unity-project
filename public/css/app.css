@@ -38,7 +38,7 @@ button{
 	border:solid 2px black;
 }
 
-form button img{
+form button img, button#addConceptButton img{
 	width:11px;
 }
 
@@ -54,43 +54,8 @@ form button img{
 }
 
 
-/* LANDING LIST CONTAINER */
-/*******************************************/
-
-span{
-	text-transform:capitalize;
-	margin-top:1em;
-}
-
-
-.listItem{
-	padding:.25em;
-}
-
-.listItem:first-child{
-	margin-top:1em;
-}
-
-.listItem:last-child{
-	margin-bottom:1em;
-}
-
-.listItem a{
-	color:#000;
-	text-decoration: none;
-}
-
-.listItem a:hover{
-	font-weight:600;
-}
-
-
-/* CONCEPT PARTIAL */
-/*******************************************/
-
-
 /* MENU / NAV */
-
+/**********************************/
 section#dropdownMenu{
 	display:none;
 }
@@ -175,10 +140,49 @@ signup-directive, login-directive{
 	font-weight:800;
 }
 
+
+/* LANDING LIST CONTAINER */
+/*******************************************/
+
+span{
+	text-transform:capitalize;
+	margin-top:1em;
+}
+
+
+.listItem{
+	padding:.25em;
+}
+
+.listItem:first-child{
+	margin-top:1em;
+}
+
+.listItem:last-child{
+	margin-bottom:1em;
+}
+
+.listItem a{
+	color:#000;
+	text-decoration: none;
+}
+
+.listItem a:hover{
+	font-weight:600;
+}
+
+
+
 /* CONCEPT DIRECTIVE */
+/*******************************************/
+
 
 concept-directive{
 	padding:1em;
+}
+
+.horizontalRule{
+	display:none;
 }
 
 concept-directive h1{
@@ -196,10 +200,6 @@ concept-directive h1{
 .conceptItem, #addConcept{
 	margin:1em 0px;
 }
-
-/*#addConcept, .concept h3{
-	text-align:center;
-}*/
 
 .concept h3 a{
 	color:#000;
@@ -220,7 +220,7 @@ concept-directive h1{
 }
 
 .singleConcept{
-	margin:1em;
+	margin:1em 0px;
 }
 
 
@@ -260,7 +260,63 @@ img.conceptImg{
 	padding:0px;
 }
 
+.singleConcept{
+	display:inline-block;
+}
+
+/* ADD CONCEPT */
+/*********************************/
+button#makeFlow{
+	border:0px;
+}
+
+button#makeFlowButton img{
+	width:11px;
+}
+
+#addConceptContainer h3, #addConceptContainer button{
+	display:inline;
+} 
+
+#addFeatureButton{
+	margin: .75em 0px;
+}
+
+#addConceptImage{
+	padding:0;
+}
+
+#addConceptForm input{
+	width:100%;
+}
+
+input#addConceptImage{
+	width:50%;
+}
+
+#addConceptButton{
+	border:0px;
+}
+
 /* DRAW PAGE */
+
+canvas{
+	width:800px;
+	max-width:100%;
+	margin:.5em 0px;
+	display:inline;
+}
+
+#flow-image-directions, #canvas-options-container{
+	width:50%;
+	float:left;
+	padding-right:2em;
+}
+
+.drawingInstructions{
+	text-align:left;
+	margin-bottom:.5em;
+}
 
 #canvas-container {
 	text-align: center;
@@ -291,6 +347,19 @@ img.conceptImg{
 /* MEDIA QUERY */
 /*****************************************************************/
 
+
+@media(min-width:400px){
+	#addConcept input{
+		width:50%;
+		float:left;
+	}
+}
+
+@media(min-width:400px){
+	#addConcept input{
+		width:33%;
+	}
+}
 
 @media (min-width:768px){
 
@@ -349,15 +418,22 @@ img.conceptImg{
 		width:50%;
 	}
 
+	#logoutButton{
+		float:right;
+		margin-right:1em;
+	}
+
+	/*CONCEPT PAGE*/
+
 	.concept{
 		width:800px;
 		max-width:100%;
 	}
 
-	#logoutButton{
-		float:right;
-		margin-right:1em;
+	.horizontalRule{
+		display:block;
 	}
+
 
 }
 

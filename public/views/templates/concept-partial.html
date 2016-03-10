@@ -1,10 +1,8 @@
 <br clear="all">
 
-<hr>
+<hr class="horizontalRule">
 <section class="concept">
 	<h1>{{conceptCtrl.name}}</h1>
-
-	<h3><a href="/draw">Create Your Own Flow Diagram</a></h3>
 	
 	<div id="addConcept">
 		<add-concept></add-concept>
@@ -12,7 +10,7 @@
 
 	<div ng-if="conceptCtrl.user.isAdmin === false || conceptCtrl.user.loggedIn === false" class="conceptItem">
 		<div ng-repeat="concept in conceptCtrl.concept">
-			<div ng-repeat="title in concept.concept | filter:title.approved=true">
+			<div class="singleConcept" ng-repeat="title in concept.concept | filter:title.approved=true">
 				<h2>{{title.title}}</h2>
 				<p>Stars: {{title.stars}}</p><br>
 				<img class="conceptImg" ng-if="title.img != ''" ng-src="{{title.img}}" alt="Concept Image">
@@ -39,9 +37,11 @@
 							<input id="formFile{{$index}} chooseFile" type="file" name="image"  />
 							<input id="approveCheckbox" type="checkbox" ng-model="title.approved">
 							<button id="updateConceptButton" ng-click="conceptCtrl.revealConcepts($index)">Update</button>
+							
 						</div>
 					</form>
 				</div> <!-- #edit -->
+
 
 				<img class="conceptImg"ng-if="title.img != '' && title.img != null" ng-src="{{title.img}}" alt="Concept Image">
 				
