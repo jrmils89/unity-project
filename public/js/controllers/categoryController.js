@@ -1,7 +1,7 @@
 var app = angular.module('categoryContoller', ['ngCookies']);
 
 
-app.controller('categoryContoller', ['$http','$location','$cookies', function($http, $location, $cookies) {
+app.controller('categoryContoller', ['$http','$location','$cookies', '$scope', function($http, $location, $cookies, $scope) {
   var self = this;
 
   // This gets a cookie that was set by the server if the user requested a path other than '/'
@@ -19,7 +19,26 @@ app.controller('categoryContoller', ['$http','$location','$cookies', function($h
 
   this.show = false;
 
-  // this.
+  // to check if current user is logged in & isAdmin so they are able to update 
+  // categories
+  this.user = {};
+  this.user.loggedIn = false;
+  var cookies = $cookies.getAll();
+
+  if(cookies.userUsername && cookies.userEmail){
+    self.user = {
+      username: cookies.userUsername,
+      email: cookies.userEmail,
+      isAdmin: cookies.userIsAdmin,
+      loggedIn: true
+    };
+  };
+
+
+$scope.$on('user-logged-in', function(eventObj, data) {
+    self.user = data;
+  });
+
 
   this.revealCategories = function(){
     self.show = !self.show
