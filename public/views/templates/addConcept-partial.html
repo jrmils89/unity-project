@@ -8,16 +8,15 @@
 </div>
 
 	<draw-directive ng-if="addConceptCtrl.drawDivShow == true && addConceptCtrl.user.loggedIn == true"></draw-directive>
-	
+
 <div id="addFeatureButton">
 	<h3>Add Concept</h3>
 	<button id="addConceptButton" ng-click="addConceptCtrl.addConcept(addConceptCtrl.newConcept)">Create</button>
 </div>
 
-	
+
 	<form id="addConceptForm">
 		<input type="text" ng-model="addConceptCtrl.newConcept.title" placeholder="Concept Title">
-		<input type="number" ng-model="addConceptCtrl.newConcept.stars" placeholder="Stars">
 		<input id="addConceptImage" type="file" name="image"  />
 	</form>
 </div>
