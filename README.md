@@ -18,6 +18,7 @@ FlowLy is a MEAN Stack Application
 - Concepts that receive the most stars are displayed first
 - Users can either upload images they make outside the application or they can create a flow chart using the application's basic flow chart maker and upload that image
 - Admin users are able to manage the content and users on the site. This allows them to approve concepts and make other users admin users.
+- Images are stored using the ospry.io library. This all happens client side and to scale a better solution would be needed.
 
 
 ## Contributors
