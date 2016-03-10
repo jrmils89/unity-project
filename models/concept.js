@@ -4,8 +4,8 @@ var Category = require('./category.js');
 var conceptSchema = mongoose.Schema({
   title: String,
   img: String,
-  stars: Number,
-  approved: {type: Boolean, default: false} 
+  stars: {type: Number, default: 0},
+  approved: {type: Boolean, default: false}
 });
 
 

@@ -30,11 +30,7 @@ app.controller("AddConceptController", ["$http", "$routeParams",'$scope','$cooki
 	    ospry.up({
 	      form: document.getElementById("addConceptForm"),
 	      imageReady: function(err, metadata) {
-	        console.log(err);
-	        console.log(metadata);
-	        console.log("/api/v1/categories/" + self.name);
 	        data.img = metadata.httpsURL;
-	        console.log(data);
 	        $http({
 	          method: "POST",
 	          url: "/api/v1/categories/" + self.name,
