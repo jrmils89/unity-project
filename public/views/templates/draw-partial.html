@@ -1,13 +1,33 @@
 <div id="canvas-container">
 
   <canvas style="background: white; border: solid 1px black" id="canvas" ng-click="drawCtrl.addElToCanvas($event)"></canvas><br/>
-  <button ng-click="drawCtrl.undoCanvas()">Undo</button>
-  <button ng-click="drawCtrl.redoCanvas()">Redo</button>
+  <button class="undoRedo" ng-click="drawCtrl.undoCanvas()">Undo</button>
+  <button class="undoRedo" ng-click="drawCtrl.redoCanvas()">Redo</button><br>
+  <button class="clearDownload" ng-click="drawCtrl.clear()">Clear Image</button>
+  <a id="download" download="FlowChart.jpg"><button class="clearDownload" >Download Image</button></a>
 
 </div>
-  
-  <div id="flow-image-directions">
+
+<div id="canvas-options-container">
+
+
+    <div class="selectShapes" id="text-arrows-canvas-option">
+      <h3>Text Or Arrow</h3><br>
+      <input type="radio" name="group1" value="text" ng-model="drawCtrl.groupOne">
+      <input type="text" ng-model="drawCtrl.text" placeholder="Write Text"><br>
+      <input type="radio" name="group1" value="rightArrow" ng-model="drawCtrl.groupOne">Right Arrow<br>
+      <input type="radio" name="group1" value="leftArrow" ng-model="drawCtrl.groupOne">Left Arrow<br>
+      <input type="radio" name="group1" value="upArrow" ng-model="drawCtrl.groupOne">Up Arrow<br>
+      <input type="radio" name="group1" value="downArrow" ng-model="drawCtrl.groupOne">Down Arrow<br>
+    </div>
     
+    <div class="selectShapes" id="rectangle-canvas-option">
+      <input type="checkbox" name="group2" value="rectangle" ng-model="drawCtrl.checkRectangle">
+      <h3>Rectangle</h3>
+    </div>
+</div>
+
+<div id="flow-image-directions">
     <div class="drawingInstructions">
       <h3>Instructions</h3>
       <p>Add rectangles, arrows, and text to the canvas image</p>
@@ -28,28 +48,6 @@
       <p>Select the rectangle option then click on the image where you wish to add the shape</p>
       <p>You are also able to add a rectangle with text inside by entering your text and having both rectange and text selected before clikcing on the image</p>
     </div>
-  
   </div>
 
-<div id="canvas-options-container">
-  <div class="drawingInstructions" id="rectangle-canvas-option">
-    <h2>Choose A Rectangle</h2>
-    <input type="checkbox" name="group2" value="rectangle" ng-model="drawCtrl.checkRectangle">Rectangle
-  </div>
 
-  <div class="drawingInstructions" id="text-arrows-canvas-option">
-    <h2>Choose Text Or An Arrow</h2>
-    <input type="text" ng-model="drawCtrl.text" placeholder="Write Text">
-    <input type="radio" name="group1" value="text" ng-model="drawCtrl.groupOne">Text
-    <input type="radio" name="group1" value="rightArrow" ng-model="drawCtrl.groupOne">Right Arrow
-    <input type="radio" name="group1" value="leftArrow" ng-model="drawCtrl.groupOne">Left Arrow
-    <input type="radio" name="group1" value="upArrow" ng-model="drawCtrl.groupOne">Up Arrow
-    <input type="radio" name="group1" value="downArrow" ng-model="drawCtrl.groupOne">Down Arrow
-  </div>
-
-  <div class="drawingInstructions" id="canvas-submit-options">
-    <h2>Download / Clear</h2>
-    <button ng-click="drawCtrl.clear()">Clear Image</button>
-    <a id="download" download="FlowChart.jpg">Download Image</a>
-  </div>
-</div>

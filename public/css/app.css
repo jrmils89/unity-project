@@ -18,6 +18,10 @@ button{
 	padding:5px;
 }
 
+button:hover{
+	cursor: pointer;
+}
+
 /* LANDING PAGE */
 
 #landingContainer{
@@ -304,13 +308,26 @@ canvas{
 	width:800px;
 	max-width:100%;
 	margin:.5em 0px;
-	display:inline;
+	/*display:inline;*/
+}
+
+#flow-image-directions{
+	display:inline-block;
 }
 
 #flow-image-directions, #canvas-options-container{
+	/*width:50%;*/
+	/*float:left;*/
+	padding-right:2em;
+}
+
+#rectangle-canvas-option, #text-arrows-canvas-option{
 	width:50%;
 	float:left;
-	padding-right:2em;
+}
+
+#rectangle-canvas-option h3{
+	display:inline;
 }
 
 .drawingInstructions{
@@ -318,28 +335,25 @@ canvas{
 	margin-bottom:.5em;
 }
 
+.drawingInstructions h3{
+	font-size:1.2em;
+}
+
+.drawingInstructions h3, .drawingInstructions h2{
+	text-align:center;
+}
+
 #canvas-container {
 	text-align: center;
 };
 
-.text-arrows-canvas-option {
-	width: 45%;
+.undoRedo{
+	width:80px;
 }
 
-.rectangle-canvas-option {
-	float: right;
-	width: 45%;
-}
-
-#canvas-submit-options {
-	text-align: center;
-}
-
-#download {
-	border: solid 1px black;
-	cursor: pointer;
-	color: black;
-	text-decoration: none;
+.clearDownload{
+	width:120px;
+	margin:.5em 0px 1em 0px;
 }
 
 
@@ -349,14 +363,14 @@ canvas{
 
 
 @media(min-width:400px){
-	#addConcept input{
+	#addConceptForm input{
 		width:50%;
 		float:left;
 	}
 }
 
 @media(min-width:400px){
-	#addConcept input{
+	#addConceptForm input{
 		width:33%;
 	}
 }
