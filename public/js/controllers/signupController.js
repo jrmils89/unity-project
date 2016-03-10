@@ -15,7 +15,7 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 
 	// Determine if the user has the cookies that would signal he/she is signed in
 	// and if so create the user object with his/her user information
-	if (cookies.userUsername && cookies.userEmail && cookies.userPassword) {
+	if (cookies.userUsername && cookies.userEmail) {
 		self.user = {
 			username: cookies.userUsername,
 			email: cookies.userEmail,
