@@ -5,7 +5,7 @@
 	</div>
 
 
-	
+
 <!-- ng-show="categoryCtrl.show"  -->
 	<section id="dropdownMenu" ng-class="(categoryCtrl.show)?'active':''">
 	<h3 ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome <span>{{loginCtrl.user.username}}</span></h3>
@@ -16,15 +16,13 @@
 		<br clear="all">
 
 		<div id="dropdownMenuContainer">
-			<div ng-if="categoryCtrl.user.isAdmin === 'true'">
-				<button ng-click="categoryCtrl.deleteCategory(categoryName)">Delete</button>
-			</div>
 			<div class="search-box">
 				<input class="category-search" type="text" ng-model="search" placeholder="Search" />
 			</div>
 			<div id="menuCategoryContainer">
 				<div class="list-item" ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search">
 					<a class="menucategories" href="/categories/{{categoryName.title}}">{{categoryName.title}}</a>
+					<button ng-if="categoryCtrl.user.isAdmin === 'true'" ng-click="categoryCtrl.deleteCategory(categoryName)">Delete</button>
 				</div>
 			</div>
 		</div>
