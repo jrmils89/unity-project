@@ -2,7 +2,20 @@ var app = angular.module("AddConceptController", ['ngCookies']);
 
 app.controller("AddConceptController", ["$http", "$routeParams",'$scope','$cookies', function($http, $routeParams,$scope,$cookies){
 	var self = this;
-	this.name = $routeParams.name
+	this.name = $routeParams.name;
+
+	var ospry = null;
+	$http.get('/api/v1/categories/ospry').then(
+		function(response) {
+			var ospryKey = response.data.key.toString();
+			ospry = new Ospry(ospryKey);
+		},
+		function(error) {
+			console.log(error)
+		}
+	);
+
+
 	var newConcept = {};
 	this.drawDivShow = false;
 
