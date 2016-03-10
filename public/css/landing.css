@@ -1,39 +1,80 @@
-html, body{
-	height: 100%;
+
+
+/*.ng-scope{
+	position: absolute;
+}*/
+
+#header{
+	height: 6em;
 	width: 100%;
+	border-bottom: 1px solid black;
+
 }
 
+
 /*div containing the entire landing view*/
-#landing-container{
+#landingContainer{
 	/*background-image: url('http://uxrepo.com/static/icon-sets/font-awesome/svg/code.jpg');
 	background-size: cover;*/
 	height: 90%;
 	width: 80%;
 	border: 1px solid black;
+	margin-left: 60pt;
+	position: relative;
+	/*top: 30pt;*/
+	/*left: 400pt;*/
+	/*margin: 0 auto;*/
+
+}
+
+
+
+/*#initialize-login{
+	height: 3.2em;
+	width: 12%;
+	background-color: black;
+	text-align: center;
 	padding-top: 2em;
 	margin: 10px auto;
+	border-radius: 4%;
+	font-family: 'Poiret One';
+	color: white;
+	transition: all .35s ease-in-out;
+	-webkit-transition: all .35s ease-in-out;
+	-moz-transition: all .35s ease-in-out;
+	-ms-transition: all .35s ease-in-out;
+	-o-transition: all .35s ease-in-out;
 }
+
+
+
+#initialize-login:hover{
+
+	border-radius: 100%;
+	transform: rotate(360deg);
+}
+*/
+
+
+
 
 
 /*========================================================================*/
 
 
-/*search box containing input field / everything until #landing-list-container
- / we can probably just delete this unless we want it for something*/
-#search-box{
-
-	height:5%;
-	width: 100%;
-	text-align: center;
-/*	border: 1px solid black;
-*/	margin: 0 auto;
-
+.search-box{
+	margin: 1em auto;
+	display: inline;
 }
 
 /*input field class*/
 .category-search{
 	/*height: 90%;*/
 	/*width: 99%;*/
+}
+
+.add-category {
+	display: inline;
 }
 
 /*input field styling / removing blue highslight when field is clicked*/
@@ -48,46 +89,92 @@ input.placeholder {
 
 
 /*========================================================================*/
+/*
 
-
-
-#landing-list-container{
-	height: 100%;
-	width: 100%;
-	margin: 0 auto;
-/*	border: solid 1px black;
-*/	/*border: 1px solid blue;*/
-	animation-name: turnups;
-	animation-duration: 1s;
+body{
+	background-image: url('http://i.imgur.com/tBhdAfL.png');
+	background-size: cover;
+	animation-name: img;
+	animation-duration: 3s;
 }
+
+
+@keyframes img {
+    0%   {opacity: 0}
+    50%  {opacity: .75}
+    100% {opacity: 1}
+}
+*/
+
+
+.list-container{
+	background-color: white;
+	opacity: 1;
+	margin: 0 auto;
+	padding-top: 3em;
+	padding-bottom: 4em;
+	/*border-left: solid 1px black;*/
+	/*border-right: 1px solid black;*/
+	animation-name: turnups;
+	animation-duration: 1.5s;
+}
+
 
 @keyframes turnups {
     0%   {height:0%; opacity: 0}
-    50%   {opacity: .75}
-    100%     {height:100%; opacity: 1}
+    50%   {opacity: .5}
+    100%     {height:50%; opacity: 1}
 }
 
 
 /*========================================================================*/
-	/*gif i thought about using */
-/*www.engineersgarage.com/sites/default/files/imagecache/Original/wysiwyg_imageupload/4214/if-else-code-flow.gif
-*/
+
 .list-item{
 	height: 8%;
-	width: 100%;
-/*	background-color: white;
-*//*	border-bottom: 1px solid black;*/
+	width: 80%;
+	margin: 0 auto;
+/*	border-bottom: 1px solid black;*/
 	text-align: center;
-/*	padding-top: 1em;
-*/}
+	padding-bottom: .5em;
+	padding-top: .5em;
+	display: block;
+	position: relative;
+	animation-name: textanim;
+	animation-duration: 1.5s;
+	transition: background-color .15s linear 0s, color .15s linear 0s;
+}
+
+
+/*@keyframes textanim {
+    from   {position: absolute;}
+    to     {position: relative;}
+
+}*/
+
+
+
+
+
+a.category-links{
+	text-decoration: none;
+	color: black;
+	font-size: 150%;
+	font-family: 'Raleway';
+	/*transition: background-color .3s linear 0s, color .3s linear 0s;*/
+}
+
+
+
+
 
 .list-item:hover{
 
-	background-color: #d5fcf5;
-/*	background-image: url('www.engineersgarage.com/sites/default/files/imagecache/Original/wysiwyg_imageupload/4214/if-else-code-flow.gif');
-	background-size: cover;*/
+	background-color: black;
 }
 
+.list-item:hover a{
+	color: white;
+}
 
 
 /*========================================================================*/
@@ -96,6 +183,7 @@ input.placeholder {
 
 .list-text{
 	margin-top: 20px;
+	opacity: 1;
 /*	animation-name: turnuptime;
     animation-duration: 5s;
 */}

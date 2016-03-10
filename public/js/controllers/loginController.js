@@ -17,9 +17,19 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
     };
   };
 
-  $scope.$on('user-signed-up', function(eventObj, data){
-        self.user = data;
-    });
+  this.revealLogin = function(){
+    self.show = !self.show;
+  }
+
+  $scope.$on('user-signed-up', function(eventObj, data) {
+    self.user = data;
+  });
+
+  $scope.$on("user-logged-out", function(eventObj, data){
+    self.user = {};
+    self.user.loggedIn = false;
+  });
+
 
   this.login = function(data) {
       $http.post('/api/v1/users/login', data).then(
@@ -32,6 +42,7 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
         };
         if (cookies.userUsername != null) {self.user.loggedIn = true};
         $scope.$emit('user-logged-in', self.user);
+        self.viewForm = false;
       },
       function(error) {
         console.log(error);
@@ -39,17 +50,26 @@ app.controller('loginController', ['$http','$cookies','$scope', function($http,$
     );
   }
 
-  this.logout = function() {
-    $http.get('/api/v1/users/logout').then(
-      function(response) {
-        self.user = {};
-        self.user.loggedIn = false;
-        $scope.$emit('user-logged-out', self.user);
-      },
-      function(error) {
-        console.log(error);
-      }
-    );
-  };
+  // this.logout = function() {
+  //   $http.get('/api/v1/users/logout').then(
+  //     function(response) {
+  //       self.user = {};
+  //       self.user.loggedIn = false;
+  //       $scope.$emit('user-logged-out', self.user);
+  //       self.viewForm = false;
+  //     },
+  //     function(error) {
+  //       console.log(error);
+  //     }
+  //   );
+  // };
+
+  this.viewForm = false;
+
+  this.showForm = function(index){
+    self.viewForm = !self.viewForm
+  }
+
+
 
 }]);
