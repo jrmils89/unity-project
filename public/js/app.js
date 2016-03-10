@@ -13,7 +13,7 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
             templateUrl: 'views/pages/concepts-page.html',
         }).
         when('/draw', {
-            templateUrl: 'views/pages/draw.html'
+            templateUrl: 'views/pages/draw.html',
         }).
         when('/users', {
             templateUrl: 'views/pages/users.html',
