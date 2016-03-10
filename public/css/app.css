@@ -18,36 +18,7 @@ button{
 	padding:5px;
 }
 
-#loginButton, #signupButton{
-	padding:5px;
-	width:139px;
-}
-
-/* HEADER */
-/********************************************/
-header form{
-	display:inline-block;
-	margin:1em;
-}
-
-header{
-	display:block;
-	text-align:center;
-}
-
-signup-directive, login-directive{
-	display:inline-block;
-	width:49%;
-	float:left;
-	padding: .75em;
-}
-
-header form input{
-	margin-bottom:5px;
-}
-
-
-
+/* LANDING PAGE */
 
 #landingContainer{
 	text-align:center;
@@ -62,16 +33,24 @@ header form input{
   display: inline;
 }
 
-
-
 #landingContainer form button{
 	background-color:#fff;
 	border:solid 2px black;
-	padding:3px 2px 2px 2px;
 }
 
 form button img{
 	width:11px;
+}
+
+.search-box{
+	margin-bottom:.75em;
+}
+
+.search-box .category-search{
+	border:0px;
+	border-bottom: solid 1px #ccc;
+	width:100%;
+	text-align:center;
 }
 
 
@@ -115,20 +94,9 @@ nav#menuToggle{
 	position: relative
 }
 
-nav#menuToggle h3{
-	text-transform: uppercase;
-	width: 100%;
-	text-align: center;
-}
-
 nav#menuToggle img{
 	width:30px;
 	float:left;
-}
-
-nav#menuToggle ul{
-	list-style: none;
-	text-transform: uppercase;
 }
 
 #toggleMenuContainer {
@@ -137,13 +105,31 @@ nav#menuToggle ul{
 	border-bottom: solid 1px #000;
 }
 
+
+#loginButton, #signupButton{
+	padding:5px;
+	width:139px;
+}
+
+
+signup-directive, login-directive{
+	display:inline-block;
+	width:49%;
+	float:left;
+	padding: .75em;
+}
+
 #dropdownMenu{
 	width:100%;
 	position: absolute;
 	z-index: 999;
 	background-color: white;
   	border-bottom: solid 1px black;
-  	position:fixed;
+  	/*position:fixed;*/
+}
+
+#userAuth{
+	border-bottom:solid 1px;
 }
 
 #menuCategoryContainer{
@@ -151,6 +137,18 @@ nav#menuToggle ul{
 	overflow:auto;
 }
 
+#menuCategoryContainer a{
+	color:#000;
+	text-decoration:none;
+}
+
+#menuCategoryContainer a:hover{
+	font-weight:600;
+}
+
+#dropdownMenuContainer{
+	padding:.75em;
+}
 
 /* CONCEPT DIRECTIVE */
 

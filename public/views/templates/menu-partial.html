@@ -6,17 +6,21 @@
 
 	<p ng-if="loginCtrl.user.username != null && loginCtrl.user.loggedIn == true">Welcome {{loginCtrl.user.username}}</p>
 	
-	<signup-directive></signup-directive>
-	<login-directive></login-directive>
-	<logout-directive></logout-directive>
 
 	<div id="dropdownMenu" ng-show="categoryCtrl.show">
-		<div class="search-box">
-			<input class="category-search" type="text" ng-model="search" placeholder="Search" />
-		</div>
-		<div id="menuCategoryContainer">
-			<div class="list-item" ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search">
-				<a class="menucategories" href="/categories/{{categoryName.title}}">{{categoryName.title}}</a>
+			<signup-directive></signup-directive>
+			<login-directive></login-directive>
+			<logout-directive></logout-directive>
+		<br clear="all">
+
+		<div id="dropdownMenuContainer">
+			<div class="search-box">
+				<input class="category-search" type="text" ng-model="search" placeholder="Search" />
+			</div>
+			<div id="menuCategoryContainer">
+				<div class="list-item" ng-repeat="categoryName in categoryCtrl.categoryNames | filter: search">
+					<a class="menucategories" href="/categories/{{categoryName.title}}">{{categoryName.title}}</a>
+				</div>
 			</div>
 		</div>
 	</div>
