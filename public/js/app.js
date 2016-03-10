@@ -7,13 +7,13 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
     $locationProvider.html5Mode({ enabled: true });
     $routeProvider.
         when('/', {
-              templateUrl: 'views/pages/home.html',
+          templateUrl: 'views/pages/home.html',
         }).
         when('/categories/:name', {
             templateUrl: 'views/pages/concepts-page.html',
         }).
         when('/draw', {
-            templateUrl: 'views/pages/draw.html'
+            templateUrl: 'views/pages/draw.html',
         }).
         when('/users', {
             templateUrl: 'views/pages/users.html',

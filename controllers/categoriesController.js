@@ -172,14 +172,23 @@ router.put('/:name', function(req, res){
 });
 
 
-//DELETE
+//DELETE CATEGORIES
+router.delete('/:name', function(req, res){
+  Category.remove({title:req.params.name}, function(err, data){
+    res.json(data);
+  });
+});
+
+
+
+//DELETE CONCEPTS
 router.delete("/:name/concepts/:id", function(req, res){
   var name = req.params.name
   var id = req.params.id
   Category.update({title: name}, {$pull:{ "concept": {_id: id} }}, function(error, data){
     res.json(data);
-  })
-})
+  });
+});
 
 
 

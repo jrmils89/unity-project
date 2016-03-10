@@ -46,7 +46,7 @@ app.controller("SignupController", ["$http", "$scope", '$cookies', function($htt
 			},
 			function(error){
 				console.log(error); // Logs the error
-			};
+			}
 		);
 	};
 
