@@ -39,8 +39,9 @@ FlowLy is a MEAN Stack Application
 ## Unsolved Problems, etc.
 
 - Canvas styling was an continues to be a bit of a challenge to get responsive (as it's not designed to do that)
-- Our initial wireframes were very good to get us started, but we had to adjust them about halfway through as styling and functionality came together.
+- Our initial wireframes were very good to get us started, but we had to adjust them about halfway through as styling and functionality came together
 - Our flow chart drawer has some issues playing nicely with Firefox at the moment
+- There are still some small bugs with the undo/redo buttons when creating your own flow charts. For example, writing two texts and then hitting undo will replace the first text wit the 2nd text in the position of the first text
 
 ## Contributors
 The site was developed by Levi Tardio, Masha Vainiblat, and Jesse Mills. #unity
