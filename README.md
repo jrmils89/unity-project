@@ -40,6 +40,7 @@ FlowLy is a MEAN Stack Application
 
 - Canvas styling was an continues to be a bit of a challenge to get responsive (as it's not designed to do that)
 - Our initial wireframes were very good to get us started, but we had to adjust them about halfway through as styling and functionality came together.
+- Our flow chart drawer has some issues playing nicely with Firefox at the moment
 
 ## Contributors
 The site was developed by Levi Tardio, Masha Vainiblat, and Jesse Mills. #unity
