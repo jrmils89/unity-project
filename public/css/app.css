@@ -362,9 +362,9 @@ input#addConceptImage{
 /* DRAW PAGE */
 
 canvas{
-	width:800px;
+	/*width:800px;
 	max-width:100%;
-	margin:.5em 0px;
+	margin:.5em 0px;*/
 	/*display:inline;*/
 }
 

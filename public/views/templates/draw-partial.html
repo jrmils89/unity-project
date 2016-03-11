@@ -1,6 +1,6 @@
 <div id="canvas-container">
 
-  <canvas style="background: white; border: solid 1px black" id="canvas" ng-click="drawCtrl.addElToCanvas($event)"></canvas><br/>
+  <canvas style="background: white; border: solid 1px black" id="canvas" width="500" height="300" ng-click="drawCtrl.addElToCanvas($event)"></canvas><br/>
   <button class="undoRedo" ng-click="drawCtrl.undoCanvas()">Undo</button>
   <button class="undoRedo" ng-click="drawCtrl.redoCanvas()">Redo</button><br>
   <button class="clearDownload" ng-click="drawCtrl.clear()">Clear Image</button>
@@ -20,7 +20,7 @@
       <input type="radio" name="group1" value="upArrow" ng-model="drawCtrl.groupOne">Up Arrow<br>
       <input type="radio" name="group1" value="downArrow" ng-model="drawCtrl.groupOne">Down Arrow<br>
     </div>
-    
+
     <div class="selectShapes" id="rectangle-canvas-option">
       <input type="checkbox" name="group2" value="rectangle" ng-model="drawCtrl.checkRectangle">
       <h3>Rectangle</h3>
@@ -38,7 +38,7 @@
       <p>Write your text, check text, and click on the image where you wish to add the text</p>
     </div>
 
-    <div class="drawingInstructions">  
+    <div class="drawingInstructions">
       <h4>To Add An Arrow</h4>
       <p>Choose which direction you wish your arrow to point, then click on the image where you wish to add the text</p>
     </div>
